@@ -11,7 +11,7 @@ window.SITE = {
   /* ---------- IDENTITÉ ---------- */
   nom: "Julie Créationgles",               // nom commercial (celui de son Booksy)
   prenom: "Julie",
-  baseline: "Formations en prothésie ongulaire & nail art",
+  baseline: "Formations en prothésie ongulaire",
   ville: "La Fare-les-Oliviers",
   adresse: "55 Av. des Puisatiers",
   cp: "13580",
