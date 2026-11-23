@@ -130,7 +130,7 @@ window.FORMATIONS = [
       { label: "En groupe (2 jours, 4 élèves max)", prix: 550, cpf: 1500 }
     ],
     prix_note: "Tarif par élève.",
-    public: "Prothésistes ongulaires en exercice qui souhaitent corriger leurs défauts et progresser.",
+    public: "Prothésistes ongulaires en exercice qui souhaitent corriger leurs défauts et se perfectionner.",
     prerequis: "Niveau base recommandé.",
     objectifs: [
       "Identifier et corriger vos points faibles",
