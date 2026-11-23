@@ -265,3 +265,24 @@ h.remove(); gone++;
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start); else start();
 })();
+
+
+/* Bouton « Poser ma question » dans l'en-tête de la page d'accueil */
+(function () {
+  function go() {
+    if (/inscription|simulateur/.test(location.pathname)) return;
+    var hero = document.querySelector("main .btns");
+    if (!hero || hero.querySelector('a[href="#ask"]')) return;
+    if (!hero.querySelector('a[href$="inscription.html"]')) return;
+    var a = document.createElement("a");
+    a.className = "btn ghost";
+    a.href = "#ask";
+    a.textContent = "Poser ma question";
+    a.addEventListener("click", function (e) {
+      var t = document.getElementById("ask");
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: "smooth", block: "center" }); }
+    });
+    hero.appendChild(a);
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", function () { setTimeout(go, 0); }); else setTimeout(go, 0);
+})();
