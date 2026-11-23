@@ -184,7 +184,7 @@ window.FORMATIONS = [
         items: ["Vous choisissez la durée : 1, 2 ou 3 jours.", "Le programme est construit avec vous avant la formation.", "Il s'adapte à votre niveau, à vos lacunes et à vos envies."] }
     ],
     moyens: "Accompagnement individuel (en privé) ou à deux (en duo) : démonstrations, pratique encadrée et corrections personnalisées.",
-    evaluation: "[à compléter]",
+    evaluation: "Évaluation continue de la pratique sur vos propres mains, à chaque technique, avec une grille de critères (préparation, structure, limage, forme, finition). Bilan individuel et remise du certificat en fin de formation.",
     delai_acces: "Autofinancement : inscription au plus tard 1 semaine avant le début de la formation. Financement CPF : inscription au plus tard 3 semaines avant.",
     accessibilite: "Locaux accessibles aux personnes en situation de handicap. Pour toute adaptation, contactez le référent handicap avant l'inscription.",
     financements: "Autofinancement ou CPF (tarif CPF indiqué ci-dessus).",
@@ -250,7 +250,7 @@ window.FORMATIONS = [
         items: ["Vous pouvez choisir uniquement le Jour 1, uniquement le Jour 2, ou les deux.", "Attention : le programme de chaque journée est déjà défini (voir ci-dessus) et ne pourra pas être modifié si vous choisissez une seule journée."] }
     ],
     moyens: "Démonstrations et pratique encadrée en groupe de 4 élèves maximum.",
-    evaluation: "[à compléter]",
+    evaluation: "Évaluation continue de la pratique sur vos propres mains, à chaque technique, avec une grille de critères (préparation, structure, limage, forme, finition). Bilan individuel et remise du certificat en fin de formation.",
     delai_acces: "Autofinancement : inscription au plus tard 1 semaine avant le début de la formation. Financement CPF : inscription au plus tard 3 semaines avant.",
     accessibilite: "Locaux accessibles aux personnes en situation de handicap. Pour toute adaptation, contactez le référent handicap avant l'inscription.",
     financements: "Autofinancement, CPF (formule 2 jours) ou FAFCEA. Paiement possible en 4 fois sans frais.",
