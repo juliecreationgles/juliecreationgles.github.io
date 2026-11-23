@@ -79,8 +79,8 @@ window.FORMATIONS = [
     format: "Présentiel",
     duree: "3 ou 5 jours (7 h 30 par jour)",
     tarifs: [
-      { label: "En groupe de 4 élèves max (5 jours)", prix: 1190, cpf: 2200 },
-      { label: "En duo (3 jours) — par élève", prix: 1190, cpf: 2200 },
+      { label: "En groupe de 4 élèves max (5 jours)", prix: 1190, cpf: 2500 },
+      { label: "En duo (3 jours) — par élève", prix: 1190, cpf: 2500 },
       { label: "En privé (3 jours)", prix: 1610, cpf: 3000 }
     ],
     prix_note: "Tarif par élève. Pour un financement CPF, se référer au tarif CPF indiqué.",
@@ -117,7 +117,7 @@ window.FORMATIONS = [
       { label: "En duo — 2 jours (par élève)", prix: 875, cpf: 2200 },
       { label: "En duo — 3 jours (par élève)", prix: 1090, cpf: 3000 },
       { label: "En privé — 1 jour", prix: 700, cpf: 1500 },
-      { label: "En privé — 2 jours", prix: 1190, cpf: 2200 },
+      { label: "En privé — 2 jours", prix: 1190, cpf: 2500 },
       { label: "En privé — 3 jours", prix: 1610, cpf: 3000 }
     ],
     prix_note: "En duo et en privé, le planning est 100 % personnalisé selon vos besoins.",
