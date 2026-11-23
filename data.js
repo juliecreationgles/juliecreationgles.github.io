@@ -150,7 +150,7 @@ window.FORMATIONS = [
         apresmidi: ["Extension capsule", "French reverse avec effets et incrustation", "Travailler le polygel", "Forme au choix", "Shooting photo de vos travaux", "Remise des certificats de formation", "Achats possibles au shop avec remise"] }
     ],
     moyens: "Démonstrations, pratique encadrée et corrections personnalisées. Jamais plus de 4 élèves par session.",
-    evaluation: "[à compléter]",
+    evaluation: "Évaluation continue de la pratique sur vos propres mains, à chaque technique, avec une grille de critères (préparation, structure, limage, forme, finition). Bilan individuel et remise du certificat en fin de formation.",
     delai_acces: "Autofinancement : inscription au plus tard 1 semaine avant le début de la formation. Financement CPF : inscription au plus tard 3 semaines avant.",
     accessibilite: "Locaux accessibles aux personnes en situation de handicap. Pour toute adaptation, contactez le référent handicap avant l'inscription.",
     financements: "Autofinancement ou CPF (tarif CPF indiqué ci-dessus).",
