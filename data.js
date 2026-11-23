@@ -44,7 +44,7 @@ window.SITE = {
   acompte_pct: "",                        // ex. "30"
   delai_retractation_jours: "10",         // contrat de formation signé avec un particulier
   delai_paiement_solde: "",               // ex. "au plus tard le premier jour de la formation"
-  delai_reponse: "",                      // ex. "sous 48 h ouvrées"
+  delai_reponse: "sous 48 h",                      // ex. "sous 48 h ouvrées"
 
   /* ---------- LIENS (à créer par Julie, tout est gratuit) ---------- */
   form_url: "https://docs.google.com/forms/d/e/1FAIpQLSf359fmJnEunw0QHTfEWp3EVXIY7nTO6SdJQzg-3DhQitSZ2Q/viewform",             // lien du Google Form d'inscription (« Envoyer > lien »)
