@@ -232,7 +232,7 @@ window.FORMATIONS = [
       { label: "1 journée au choix : Jour 1 ou Jour 2 (7 h)", prix: 390 },
       { label: "Les 2 jours : Jour 1 + Jour 2 (14 h)", prix: 590, cpf: 1500 }
     ],
-    prix_note: "Formation en groupe de 4 élèves max. Le programme de chaque journée est déjà défini et ne peut pas être modifié si vous choisissez une seule journée. Paiement possible en 4 fois sans frais. Prise en charge FAFCEA possible. Financement CPF possible uniquement pour la formule 2 jours (pas pour une seule journée).",
+    prix_note: "Formation en groupe de 4 élèves max. Le programme de chaque journée est déjà défini et ne peut pas être modifié si vous choisissez une seule journée. Financement CPF possible uniquement pour la formule 2 jours (pas pour une seule journée).",
     public: "Prothésistes ongulaires en exercice qui souhaitent consolider leur technique et se perfectionner.",
     prerequis: "Niveau base recommandé.",
     objectifs: [
@@ -253,7 +253,7 @@ window.FORMATIONS = [
     evaluation: "Évaluation continue de la pratique sur vos propres mains, à chaque technique, avec une grille de critères (préparation, structure, limage, forme, finition). Bilan individuel et remise du certificat en fin de formation.",
     delai_acces: "Autofinancement : inscription au plus tard 1 semaine avant le début de la formation. Financement CPF : inscription au plus tard 3 semaines avant.",
     accessibilite: "Locaux accessibles aux personnes en situation de handicap. Pour toute adaptation, contactez le référent handicap avant l'inscription.",
-    financements: "Autofinancement, CPF (formule 2 jours) ou FAFCEA. Paiement possible en 4 fois sans frais.",
+    financements: "Autofinancement ou CPF (formule 2 jours uniquement).",
     taux_satisfaction: null,
     taux_reussite: null
   }
