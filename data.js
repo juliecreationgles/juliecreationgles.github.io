@@ -47,8 +47,8 @@ window.SITE = {
   delai_reponse: "",                      // ex. "sous 48 h ouvrées"
 
   /* ---------- LIENS (à créer par Julie, tout est gratuit) ---------- */
-  form_url: "",             // lien du Google Form d'inscription (« Envoyer > lien »)
-  form_embed_url: "",       // lien d'intégration du formulaire (« Envoyer > < > intégrer » : l'adresse après src=)
+  form_url: "https://docs.google.com/forms/d/e/1FAIpQLSf359fmJnEunw0QHTfEWp3EVXIY7nTO6SdJQzg-3DhQitSZ2Q/viewform",             // lien du Google Form d'inscription (« Envoyer > lien »)
+  form_embed_url: "https://docs.google.com/forms/d/e/1FAIpQLSf359fmJnEunw0QHTfEWp3EVXIY7nTO6SdJQzg-3DhQitSZ2Q/viewform?embedded=true",       // lien d'intégration du formulaire (« Envoyer > < > intégrer » : l'adresse après src=)
   rdv_url: "",              // lien de la page de réservation Google Agenda (RDV téléphonique)
   rdv_embed_url: "",        // même adresse, version « intégrer » (facultatif : sinon le bouton ouvre le lien)
   planning_sheet_url: "",   // facultatif : Google Sheet publié sur le web pour afficher un planning vivant
