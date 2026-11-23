@@ -157,3 +157,12 @@ footer.site,footer.site a{color:#EAD9CB}
 .hero-visual img{object-fit:contain}
 .hero-visual .tag{position:absolute;right:16px;bottom:16px;font-size:.78rem;padding:7px 14px}
 @media(max-width:860px){.hero-visual{aspect-ratio:2/3;max-width:340px}}
+
+/* programme jour par jour */
+.jours{display:grid;gap:14px;margin:6px 0 22px}
+.jour{background:var(--creme);border:1px solid #eadfcd;border-radius:14px;padding:16px 20px}
+.jour h4{font-family:var(--serif);font-size:1.35rem;font-weight:600;color:var(--noir);margin:0 0 6px}
+.jour ul{margin:0 0 8px;padding-left:20px}
+.jour-part{margin:10px 0 4px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--or-fonce);font-weight:500}
+.jour-part span{text-transform:none;letter-spacing:0;font-size:.95rem;color:var(--gris)}
+.jour-note{margin:6px 0 0;font-style:italic;color:var(--gris)}
