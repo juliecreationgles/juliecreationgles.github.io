@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mentions légales — Julie Créationgles</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="site-header"></div>
+<main>
+<div class="pagehead"><div class="wrap"><h1>Mentions légales</h1></div></div>
+<div class="wrap narrow legal">
+
+<h2>Éditeur du site</h2>
+<p><strong data-site="directeur_publication"></strong>, exerçant sous le nom commercial <strong>Julie Créationgles</strong>.<br>
+Forme juridique : <span data-site="forme"></span><br>
+SIRET : <span data-site="siret"></span><br>
+Adresse : <span data-site="adresse"></span>, <span data-site="cp"></span> <span data-site="ville"></span><br>
+E-mail : <span data-site="email"></span><br>
+<span data-site="tva"></span></p>
+
+<h2>Directeur de la publication</h2>
+<p><span data-site="directeur_publication"></span></p>
+
+<h2>Organisme de formation</h2>
+<p>Déclaration d'activité enregistrée sous le numéro <span data-site="nda"></span> auprès du préfet de la région <span data-site="region_nda"></span>. Cet enregistrement ne vaut pas agrément de l'État.</p>
+<p data-qualiopi></p>
+
+<h2>Hébergement</h2>
+<p><span data-site="hebergeur"></span></p>
+
+<h2>Médiation de la consommation</h2>
+<p>Conformément au Code de la consommation, en cas de litige non résolu avec nous, vous pouvez recourir gratuitement au médiateur de la consommation dont nous relevons :</p>
+<p><strong data-site="mediateur_nom"></strong><br><span data-site="mediateur_adresse"></span><br>Site internet : <span data-site="mediateur_site"></span></p>
+
+<h2>Propriété intellectuelle</h2>
+<p>L'ensemble des contenus du site (textes, photographies, supports, programmes, logos) est protégé par le droit d'auteur. Toute reproduction ou réutilisation, totale ou partielle, sans autorisation écrite préalable est interdite.</p>
+
+<h2>Données personnelles</h2>
+<p>Le traitement de vos données est détaillé dans la <a href="confidentialite.html">politique de confidentialité</a>.</p>
+
+<h2>Responsabilité</h2>
+<p>Les informations publiées sur ce site (programmes, tarifs, dates) sont données à titre indicatif et peuvent évoluer. Les conditions applicables sont celles du contrat ou de la convention de formation signé(e).</p>
+
+<p><small>Dernière mise à jour : <span data-site="date_maj_legal"></span></small></p>
+</div>
+</main>
+<div id="site-footer"></div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+  /* ligne Qualiopi : affichée seulement si la certification est renseignée dans data.js */
+  (function(){var el=document.querySelector("[data-qualiopi]");if(el&&window.SITE&&window.SITE.qualiopi){el.innerHTML="Organisme certifié <strong>Qualiopi</strong> au titre de la catégorie « actions de formation », n° "+(window.SITE.qualiopi_num||"<mark class='todo'>[n° à compléter]</mark>")+".";}else if(el){el.remove();}})();
+</script>
+</body>
+</html>

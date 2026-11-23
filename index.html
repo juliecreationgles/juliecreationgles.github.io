@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Julie Créationgles — Formations en prothésie ongulaire & nail art</title>
+<meta name="description" content="Formations en prothésie ongulaire et nail art : programmes détaillés, planning, inscription en ligne et rendez-vous téléphonique.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="site-header"></div>
+<main>
+
+<section class="hero">
+  <div class="wrap grid">
+    <div>
+      <span class="pill">Centre de formation · <span data-site="ville"></span></span>
+      <h1>Apprenez la <em>prothésie ongulaire</em> avec passion.</h1>
+      <p class="lead">Des formations pratiques, bienveillantes et exigeantes pour apprendre le métier, progresser en technique et créer vos propres décors nail art.</p>
+      <div class="btns">
+        <a class="btn" href="formations.html">Voir les formations</a>
+        <a class="btn ghost" href="inscription.html">Je m'inscris</a>
+      </div>
+      <p style="margin-top:22px"><a href="rendez-vous.html">📞 Vous préférez en parler ? Prenez un rendez-vous téléphonique →</a></p>
+    </div>
+    <div class="hero-visual">
+      <img src="hero.jpg" alt="" onerror="this.remove()">
+      <span class="tag">✦ <span data-site="prenom"></span> · formatrice</span>
+    </div>
+  </div>
+</section>
+
+<div data-render="stats"></div>
+
+<section>
+  <div class="wrap">
+    <div class="center"><span class="eyebrow">Comment ça se passe</span><h2>Votre formation en 3 étapes</h2></div>
+    <div class="steps">
+      <div class="step"><h3>Choisissez</h3><p>Consultez les programmes détaillés : objectifs, durée, prérequis, tarifs, financements.</p></div>
+      <div class="step"><h3>Réservez</h3><p>Remplissez le bulletin d'inscription en ligne, ou réservez un appel téléphonique pour poser vos questions.</p></div>
+      <div class="step"><h3>Formez-vous</h3><p>Vous recevez votre convocation, puis vous pratiquez, vous êtes corrigée et vous progressez.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="center"><span class="eyebrow">Nos formations</span><h2>Choisissez votre formation</h2>
+      <p class="lead">Du démarrage au perfectionnement, un parcours adapté à votre niveau.</p></div>
+    <div class="cards" data-render="cards-3"></div>
+    <div class="center btns" style="justify-content:center"><a class="btn" href="formations.html">Toutes les formations & programmes</a></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="center"><span class="eyebrow">Prochaines dates</span><h2>Planning des sessions</h2></div>
+    <div style="margin-top:30px" data-render="sessions-3"></div>
+    <div class="center btns" style="justify-content:center"><a class="btn ghost" href="planning.html">Voir tout le planning</a></div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap rdv">
+    <div>
+      <span class="eyebrow">Une question avant de vous inscrire ?</span>
+      <h2>Réservez un rendez-vous téléphonique</h2>
+      <p>Choisissez directement un créneau dans mon agenda : nous faisons le point sur votre projet, votre niveau et le financement possible.</p>
+      <div class="btns"><a class="btn or" href="rendez-vous.html">Choisir un créneau</a></div>
+    </div>
+    <div class="notice" style="color:var(--texte)"><strong>Gratuit et sans engagement.</strong><br>Vous recevez une confirmation par e-mail avec l'invitation dans votre agenda.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap about">
+    <div class="photo"><img src="julie.jpg" alt="Portrait de la formatrice" onerror="this.remove()"></div>
+    <div>
+      <span class="eyebrow">Votre formatrice</span>
+      <h2><span data-site="prenom"></span>, formatrice passionnée</h2>
+      <div data-site="a_propos"></div>
+    </div>
+  </div>
+</section>
+
+<div data-render="avis"></div>
+
+<section class="alt" id="contact">
+  <div class="wrap">
+    <div class="center"><span class="eyebrow">Contact</span><h2>Une question ?</h2></div>
+    <div class="contact-grid">
+      <div class="card"><h3>✉️ Par e-mail</h3><p data-site="email"></p><p><small>Délai de réponse : <span data-site="delai_reponse"></span></small></p></div>
+      <div class="card"><h3>📍 Adresse</h3><p><span data-site="adresse"></span><br><span data-site="cp"></span> <span data-site="ville"></span></p><p><small data-site="horaires"></small></p></div>
+      <div class="card"><h3>📞 Par téléphone</h3><p>Réservez un créneau dans mon agenda.</p><p><a class="btn ghost" href="rendez-vous.html">Prendre rendez-vous</a></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark center">
+  <div class="wrap">
+    <span class="eyebrow">Prête à vous lancer ?</span>
+    <h2>Commencez votre formation.</h2>
+    <div class="btns" style="justify-content:center"><a class="btn or" href="inscription.html">Je m'inscris</a><a class="btn ghost" href="formations.html">Voir les programmes</a></div>
+  </div>
+</section>
+
+</main>
+<div id="site-footer"></div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
