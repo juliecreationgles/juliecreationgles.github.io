@@ -150,3 +150,10 @@ footer.site,footer.site a{color:#EAD9CB}
 /* logo almas */
 .logo{display:grid;grid-template-columns:auto auto;column-gap:12px;align-items:center}
 .logo::before{content:'';grid-column:1;grid-row:1/span 2;width:61px;height:44px;background:url(IMG_2268.PNG) no-repeat;background-size:90px auto;background-position:-14.7px -11px}
+
+/* photo accueil (en entier) */
+.hero h1{font-size:clamp(2.1rem,4.4vw,3.2rem)}
+.hero-visual{aspect-ratio:2/3;background:#c9b6a6}
+.hero-visual img{object-fit:contain}
+.hero-visual .tag{position:absolute;right:16px;bottom:16px;font-size:.78rem;padding:7px 14px}
+@media(max-width:860px){.hero-visual{aspect-ratio:2/3;max-width:340px}}
