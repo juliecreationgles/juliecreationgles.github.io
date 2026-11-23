@@ -225,12 +225,12 @@ window.FORMATIONS = [
   {
     id: "popit",
     titre: "Formation Popit",
-    accroche: "Maîtrisez le Popit plein et le Popit extension, en petit groupe. Vous choisissez le Jour 1, le Jour 2 ou les deux.",
+    accroche: "Maîtrisez le Popit plein et le Popit extension, en petit groupe. Au choix : uniquement le Jour 1, uniquement le Jour 2, ou les 2 jours.",
     format: "Présentiel, en groupe de 4 élèves max",
     duree: "1 ou 2 jours (7 h par jour)",
     tarifs: [
-      { label: "En groupe — Jour 1 ou Jour 2 au choix (7 h)", prix: 390 },
-      { label: "En groupe — Jour 1 + Jour 2 (14 h)", prix: 590, cpf: 1100 }
+      { label: "1 journée au choix : Jour 1 ou Jour 2 (7 h)", prix: 390 },
+      { label: "Les 2 jours : Jour 1 + Jour 2 (14 h)", prix: 590, cpf: 1100 }
     ],
     prix_note: "Formation en groupe de 4 élèves max. Le programme de chaque journée est déjà défini et ne peut pas être modifié si vous choisissez une seule journée. Paiement possible en 4 fois sans frais. Prise en charge FAFCEA possible.",
     public: "Prothésistes ongulaires en exercice qui souhaitent consolider leur technique et se perfectionner.",
