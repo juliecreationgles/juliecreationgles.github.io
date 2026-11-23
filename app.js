@@ -94,7 +94,7 @@
       var res = [];
       if (f.taux_satisfaction) res.push("Taux de satisfaction : " + esc(f.taux_satisfaction));
       if (f.taux_reussite) res.push("Taux de réussite : " + esc(f.taux_reussite));
-      var resHtml = res.length ? res.join(" · ") : '<mark class="todo">[résultats à communiquer dès qu\'ils sont mesurés]</mark>';
+      var resHtml = res.length ? res.join(" · ") : 'Indicateurs en cours de collecte, publiés prochainement.';
       return '<details class="prog" id="' + f.id + '"' + (i === 0 ? " open" : "") + "><summary><h3>" + esc(f.titre) + (f.exemple ? exBadge : "") + "</h3><span class=\"badge\">" + esc(f.duree) + "</span></summary>" +
         '<div class="prog-body"><p>' + esc(f.accroche) + "</p>" +
         '<dl class="fiche">' +
