@@ -77,16 +77,16 @@ window.FORMATIONS = [
   {
     id: "base",
     titre: "Formation de base — Initial gel",
-    accroche: "Une formation de base très complète : vous travaillez sur vous, sur main d'entraînement et sur modèle.",
+    accroche: "Une formation de base très complète : vous travaillez sur vous et sur modèle.",
     format: "Présentiel",
-    duree: "5 jours en groupe, 3 jours en duo ou en privé (7 h 30 par jour)",
+    duree: "5 jours en groupe, 3 jours en duo ou en privé (7 h par jour)",
     tarifs: [
       { label: "En groupe de 4 élèves max (5 jours)", prix: 1190, cpf: 2500 },
       { label: "En duo (3 jours) — par élève", prix: 1190, cpf: 2500 },
       { label: "En privé (3 jours)", prix: 1610, cpf: 3000 }
     ],
     prix_note: "Tarif par élève. En duo et en privé, le programme est identique mais concentré sur 3 jours, sans le jour d'examen. En duo, c'est à vous de trouver votre binôme.",
-    public: "Toute personne souhaitant apprendre la prothésie ongulaire, débutantes acceptées.",
+    public: "Toute personne souhaitant apprendre la prothésie ongulaire, se remettre à niveau ou perfectionner ses techniques selon les tendances actuelles. Débutantes acceptées.",
     prerequis: "Aucun niveau requis.",
     objectifs: [
       "Maîtriser la théorie du métier : cycle de vie de l'ongle, hygiène et maladies, règles et obligations, chimie des produits",
@@ -114,8 +114,8 @@ window.FORMATIONS = [
     ],
     moyens: "Alternance de théorie et de pratique (démonstrations, entraînement sur soi, sur capsule et sur modèle). Groupes de 4 élèves maximum.",
     evaluation: "En groupe : examen théorique (1 h) et épreuve pratique sur modèle (5 h) le 5e jour. Remise du certificat en fin de formation.",
-    delai_acces: "[à compléter : délai entre l'inscription et le début de la formation]",
-    accessibilite: "Contactez le référent handicap avant l'inscription pour étudier les adaptations possibles.",
+    delai_acces: "Autofinancement : inscription au plus tard 1 semaine avant le début de la formation. Financement CPF : inscription au plus tard 3 semaines avant.",
+    accessibilite: "Locaux accessibles aux personnes en situation de handicap. Pour toute adaptation, contactez le référent handicap avant l'inscription.",
     financements: "Autofinancement ou CPF (tarif CPF indiqué ci-dessus).",
     taux_satisfaction: null,
     taux_reussite: null
@@ -125,7 +125,7 @@ window.FORMATIONS = [
     titre: "Perfectionnement en groupe",
     accroche: "Deux journées au programme bien défini pour revoir toutes les méthodes de rallongement : Popit plein, Popit extension, chablon et capsule.",
     format: "Présentiel, en groupe de 4 élèves max",
-    duree: "2 jours (7 h 30 par jour)",
+    duree: "2 jours (7 h par jour)",
     tarifs: [
       { label: "En groupe (2 jours, 4 élèves max)", prix: 550, cpf: 1500 }
     ],
@@ -151,8 +151,8 @@ window.FORMATIONS = [
     ],
     moyens: "Démonstrations, pratique encadrée et corrections personnalisées. Jamais plus de 4 élèves par session.",
     evaluation: "[à compléter]",
-    delai_acces: "[à compléter]",
-    accessibilite: "Contactez le référent handicap avant l'inscription pour étudier les adaptations possibles.",
+    delai_acces: "Autofinancement : inscription au plus tard 1 semaine avant le début de la formation. Financement CPF : inscription au plus tard 3 semaines avant.",
+    accessibilite: "Locaux accessibles aux personnes en situation de handicap. Pour toute adaptation, contactez le référent handicap avant l'inscription.",
     financements: "Autofinancement ou CPF (tarif CPF indiqué ci-dessus).",
     taux_satisfaction: null,
     taux_reussite: null
@@ -162,7 +162,7 @@ window.FORMATIONS = [
     titre: "Perfectionnement en privé ou en duo",
     accroche: "Un perfectionnement 100 % à la carte, adapté à votre niveau, à vos lacunes et à vos envies. Vous choisissez la durée : 1, 2 ou 3 jours.",
     format: "Présentiel, en privé ou en duo",
-    duree: "1, 2 ou 3 jours au choix (7 h 30 par jour)",
+    duree: "1, 2 ou 3 jours au choix (7 h par jour)",
     tarifs: [
       { label: "En privé — 1 jour", prix: 700, cpf: 1500 },
       { label: "En privé — 2 jours", prix: 1190, cpf: 2500 },
@@ -185,8 +185,8 @@ window.FORMATIONS = [
     ],
     moyens: "Accompagnement individuel (en privé) ou à deux (en duo) : démonstrations, pratique encadrée et corrections personnalisées.",
     evaluation: "[à compléter]",
-    delai_acces: "[à compléter]",
-    accessibilite: "Contactez le référent handicap avant l'inscription pour étudier les adaptations possibles.",
+    delai_acces: "Autofinancement : inscription au plus tard 1 semaine avant le début de la formation. Financement CPF : inscription au plus tard 3 semaines avant.",
+    accessibilite: "Locaux accessibles aux personnes en situation de handicap. Pour toute adaptation, contactez le référent handicap avant l'inscription.",
     financements: "Autofinancement ou CPF (tarif CPF indiqué ci-dessus).",
     taux_satisfaction: null,
     taux_reussite: null
@@ -196,7 +196,7 @@ window.FORMATIONS = [
     titre: "Formation Amande russe",
     accroche: "Réaliser de belles amandes russes avec une structure correcte et plusieurs techniques de french reverse, selon les tendances actuelles.",
     format: "Présentiel, en groupe de 4 élèves max",
-    duree: "2 jours (7 h 30 par jour)",
+    duree: "2 jours (7 h par jour)",
     tarifs: [{ label: "En groupe (4 élèves max)", prix: 700, cpf: 1500 }],
     prix_note: "",
     public: "Prothésistes ongulaires en exercice.",
@@ -216,8 +216,8 @@ window.FORMATIONS = [
     ],
     moyens: "Démonstrations et pratique encadrée en groupe de 4 élèves maximum.",
     evaluation: "[à compléter]",
-    delai_acces: "[à compléter]",
-    accessibilite: "Contactez le référent handicap avant l'inscription pour étudier les adaptations possibles.",
+    delai_acces: "Autofinancement : inscription au plus tard 1 semaine avant le début de la formation. Financement CPF : inscription au plus tard 3 semaines avant.",
+    accessibilite: "Locaux accessibles aux personnes en situation de handicap. Pour toute adaptation, contactez le référent handicap avant l'inscription.",
     financements: "Autofinancement ou CPF (tarif CPF indiqué ci-dessus).",
     taux_satisfaction: null,
     taux_reussite: null
@@ -251,8 +251,8 @@ window.FORMATIONS = [
     ],
     moyens: "Démonstrations et pratique encadrée en groupe de 4 élèves maximum.",
     evaluation: "[à compléter]",
-    delai_acces: "[à compléter]",
-    accessibilite: "Contactez le référent handicap avant l'inscription pour étudier les adaptations possibles.",
+    delai_acces: "Autofinancement : inscription au plus tard 1 semaine avant le début de la formation. Financement CPF : inscription au plus tard 3 semaines avant.",
+    accessibilite: "Locaux accessibles aux personnes en situation de handicap. Pour toute adaptation, contactez le référent handicap avant l'inscription.",
     financements: "Autofinancement, CPF (formule 2 jours) ou FAFCEA. Paiement possible en 4 fois sans frais.",
     taux_satisfaction: null,
     taux_reussite: null
