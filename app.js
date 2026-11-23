@@ -179,3 +179,89 @@ h.remove(); gone++;
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", mount); else mount();
 })();
+
+
+/* === Encart « Poser ma question » + lien simulateur === */
+(function () {
+  var FORM = "https://docs.google.com/forms/d/e/1FAIpQLSes4HvZyrk6K3CihgGZ4PLRGnjj5B165DREIntUnr0fi4nHTg/formResponse";
+  var E = { prenom: "entry.1453383954", mail: "entry.2032733479", q: "entry.1870630926" };
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function start() {
+    var tries = 0;
+    var iv = setInterval(function () {
+      var foot = document.querySelector("footer");
+      tries++;
+      if (!foot && tries < 40) return;
+      clearInterval(iv);
+      if (!foot) return;
+      var page = location.pathname;
+      var a = foot.querySelector('a[href$="inscription.html"]');
+      if (a && !foot.querySelector('a[href$="simulateur-de-devis.html"]')) {
+        var host = a.closest("li") || a;
+        var n = host.cloneNode(true);
+        var na = n.tagName === "A" ? n : n.querySelector("a");
+        na.setAttribute("href", "simulateur-de-devis.html");
+        na.textContent = "Simulateur de devis";
+        host.parentNode.insertBefore(n, host.nextSibling);
+      }
+      var f = document.getElementById("formulaire");
+      if (f && !document.getElementById("sim-hint")) {
+        var p = document.createElement("p");
+        p.id = "sim-hint";
+        p.style.cssText = "text-align:center;margin:0 0 1rem;font-size:.95rem";
+        p.innerHTML = 'Besoin d’un chiffrage avant de vous inscrire ? <a href="simulateur-de-devis.html">Estimez votre devis en 1 minute</a>.';
+        f.parentNode.insertBefore(p, f);
+      }
+      if (/inscription|simulateur/.test(page) || document.getElementById("ask")) return;
+      var d = (window.SITE && window.SITE.delai_reponse) || "sous 48 h";
+      var s = document.createElement("section");
+      s.id = "ask";
+      s.innerHTML =
+        '<style>' +
+        '#ask{background:var(--creme2,#F3EBE0);padding:3rem 1.25rem}' +
+        '#ask .box{max-width:720px;margin:0 auto;background:#fff;border:1px solid rgba(201,169,110,.45);border-radius:var(--rayon,18px);padding:2rem 1.6rem;box-shadow:0 8px 30px rgba(26,18,16,.06)}' +
+        '#ask h2{font-family:var(--serif,"Cormorant Garamond",serif);font-weight:500;font-size:2rem;margin:.2rem 0 .6rem;color:var(--noir,#1A1210)}' +
+        '#ask .eyebrow{color:var(--or-fonce,#a98a4f);letter-spacing:.18em;text-transform:uppercase;font-size:.75rem}' +
+        '#ask p.lead{margin:0 0 1.2rem;color:#4a3f3a;line-height:1.6}' +
+        '#ask .row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}' +
+        '@media(max-width:600px){#ask .row{grid-template-columns:1fr}}' +
+        '#ask label{display:block;font-size:.85rem;margin:.7rem 0 .25rem;color:#4a3f3a}' +
+        '#ask input,#ask textarea{width:100%;box-sizing:border-box;font:inherit;padding:.7rem .8rem;border:1px solid #d9cdb8;border-radius:12px;background:var(--creme,#FAF5EC)}' +
+        '#ask input:focus,#ask textarea:focus{outline:2px solid var(--or,#C9A96E);border-color:var(--or,#C9A96E)}' +
+        '#ask textarea{min-height:130px;resize:vertical}' +
+        '#ask .hp{position:absolute;left:-9999px;height:0;overflow:hidden}' +
+        '#ask button{margin-top:1.1rem;cursor:pointer}' +
+        '#ask .msg{margin-top:1rem;padding:.9rem 1rem;border-radius:12px;font-size:.95rem}' +
+        '#ask .ok{background:#eef6ea;color:#2f5a22}#ask .ko{background:#fbeceb;color:#8a2a22}' +
+        '</style>' +
+        '<div class="box"><span class="eyebrow">Une question ?</span><h2>Poser ma question</h2>' +
+        '<p class="lead">Regardez d’abord sur le site : formations, tarifs, financement, planning. Si vous ne trouvez pas la réponse (ou si vous préférez ne pas chercher), écrivez-la ici : Julie la reçoit directement par e-mail et vous répond ' + esc(d) + '.</p>' +
+        '<form id="askf" novalidate><div class="row"><div><label for="ask-p">Prénom</label><input id="ask-p" autocomplete="given-name"></div>' +
+        '<div><label for="ask-m">Votre e-mail *</label><input id="ask-m" type="email" autocomplete="email" required></div></div>' +
+        '<label for="ask-q">Votre question *</label><textarea id="ask-q" required></textarea>' +
+        '<div class="hp" aria-hidden="true"><label>Ne pas remplir <input id="ask-h" tabindex="-1" autocomplete="off"></label></div>' +
+        '<button class="btn" type="submit">Envoyer ma question</button><div id="ask-msg" role="status"></div></form></div>';
+      foot.parentNode.insertBefore(s, foot);
+      var form = s.querySelector("#askf"), msg = s.querySelector("#ask-msg");
+      form.addEventListener("submit", function (ev) {
+        ev.preventDefault();
+        var m = s.querySelector("#ask-m").value.trim(), q = s.querySelector("#ask-q").value.trim();
+        if (s.querySelector("#ask-h").value) return;
+        if (!/^\S+@\S+\.\S+$/.test(m) || !q) { msg.className = "msg ko"; msg.textContent = "Merci d’indiquer un e-mail valide et votre question."; return; }
+        var P = new URLSearchParams();
+        P.append(E.prenom, s.querySelector("#ask-p").value.trim());
+        P.append(E.mail, m);
+        P.append(E.q, q);
+        var btn = form.querySelector("button"); btn.disabled = true;
+        fetch(FORM, { method: "POST", mode: "no-cors", body: P }).then(function () {
+          form.reset(); msg.className = "msg ok";
+          msg.textContent = "Merci, votre question est bien envoyée ! Julie vous répond " + d + ".";
+          btn.disabled = false;
+        }).catch(function () {
+          msg.className = "msg ko"; msg.textContent = "Oups, l’envoi a échoué. Réessayez dans un instant."; btn.disabled = false;
+        });
+      });
+    }, 50);
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start); else start();
+})();
