@@ -76,7 +76,7 @@ window.SITE = {
 window.FORMATIONS = [
   {
     id: "base",
-    titre: "Formation de base — Initial gel",
+    titre: "Formation de base — Initial",
     accroche: "Une formation de base très complète : vous travaillez sur vous et sur modèle.",
     format: "Présentiel",
     duree: "5 jours en groupe, 3 jours en duo ou en privé (7 h par jour)",
@@ -159,8 +159,8 @@ window.FORMATIONS = [
   },
   {
     id: "perfectionnement-prive",
-    titre: "Perfectionnement en privé ou en duo",
-    accroche: "Un perfectionnement 100 % à la carte, adapté à votre niveau, à vos lacunes et à vos envies. Vous choisissez la durée : 1, 2 ou 3 jours.",
+    titre: "Coaching privé ou en duo",
+    accroche: "Un coaching 100 % à la carte, adapté à votre niveau, à vos lacunes et à vos envies. Vous choisissez la durée : 1, 2 ou 3 jours.",
     format: "Présentiel, en privé ou en duo",
     duree: "1, 2 ou 3 jours au choix (7 h par jour)",
     tarifs: [
@@ -225,14 +225,14 @@ window.FORMATIONS = [
   {
     id: "popit",
     titre: "Formation Popit",
-    accroche: "Maîtrisez le Popit plein et le Popit extension, en petit groupe. Formation sur 1 ou 2 jours.",
-    format: "Présentiel, en groupe uniquement (4 élèves max)",
-    duree: "1 jour au choix (7 h) ou 2 jours (14 h), de 9 h à 16 h 30",
+    accroche: "Maîtrisez le Popit plein et le Popit extension, en petit groupe. Vous choisissez le Jour 1, le Jour 2 ou les deux.",
+    format: "Présentiel, en groupe de 4 élèves max",
+    duree: "Jour 1 uniquement, Jour 2 uniquement ou les 2 jours (7 h par jour), de 9 h à 16 h 30",
     tarifs: [
-      { label: "En groupe — 1 jour au choix (7 h)", prix: 390 },
-      { label: "En groupe — 2 jours (14 h)", prix: 590, cpf: 1100 }
+      { label: "En groupe — Jour 1 ou Jour 2 au choix (7 h)", prix: 390 },
+      { label: "En groupe — Jour 1 + Jour 2 (14 h)", prix: 590, cpf: 1100 }
     ],
-    prix_note: "Formation proposée en groupe uniquement, 4 élèves maximum. Paiement possible en 4 fois sans frais. Prise en charge FAFCEA possible.",
+    prix_note: "Formation en groupe de 4 élèves max. Le programme de chaque journée est déjà défini et ne peut pas être modifié si vous choisissez une seule journée. Paiement possible en 4 fois sans frais. Prise en charge FAFCEA possible.",
     public: "[à compléter]",
     prerequis: "[à compléter]",
     objectifs: [
@@ -246,8 +246,8 @@ window.FORMATIONS = [
         note: "Gardez vos ongles pour le remplissage." },
       { jour: "Jour 2",
         items: ["Manucure profonde « russe »", "Analyse des différents types d'ongles", "Popit extension méthode classique", "Popit extension méthode ongles courts", "Technique sans limage", "Différentes déco selon le goût du jour", "Apprendre à mettre en valeur vos photos"] },
-      { jour: "En 1 seule journée",
-        items: ["Vous pouvez suivre une seule journée au choix : le Jour 1 ou le Jour 2."] }
+      { jour: "1 ou 2 journées au choix",
+        items: ["Vous pouvez choisir uniquement le Jour 1, uniquement le Jour 2, ou les deux.", "Attention : le programme de chaque journée est déjà défini (voir ci-dessus) et ne pourra pas être modifié si vous choisissez une seule journée."] }
     ],
     moyens: "Démonstrations et pratique encadrée en groupe de 4 élèves maximum.",
     evaluation: "[à compléter]",
