@@ -168,7 +168,7 @@ window.FORMATIONS = [
       { label: "En privé — 2 jours", prix: 1190, cpf: 2500 },
       { label: "En privé — 3 jours", prix: 1610, cpf: 3000 },
       { label: "En duo — 1 jour (par élève)", prix: 525, cpf: 1500 },
-      { label: "En duo — 2 jours (par élève)", prix: 875, cpf: 2200 },
+      { label: "En duo — 2 jours (par élève)", prix: 875, cpf: 2500 },
       { label: "En duo — 3 jours (par élève)", prix: 1090, cpf: 3000 }
     ],
     prix_note: "En duo, le tarif est par élève et c'est à vous de trouver votre binôme.",
