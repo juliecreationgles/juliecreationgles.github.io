@@ -172,7 +172,7 @@ window.FORMATIONS = [
       { label: "En duo — 3 jours (par élève)", prix: 1090, cpf: 3000 }
     ],
     prix_note: "En duo, le tarif est par élève et c'est à vous de trouver votre binôme.",
-    public: "Prothésistes ongulaires en exercice qui souhaitent progresser sur des points précis.",
+    public: "Prothésistes ongulaires en exercice qui souhaitent consolider leur technique et se perfectionner.",
     prerequis: "Niveau base recommandé.",
     objectifs: [
       "Travailler précisément les techniques de votre choix",
@@ -233,7 +233,7 @@ window.FORMATIONS = [
       { label: "En groupe — Jour 1 + Jour 2 (14 h)", prix: 590, cpf: 1100 }
     ],
     prix_note: "Formation en groupe de 4 élèves max. Le programme de chaque journée est déjà défini et ne peut pas être modifié si vous choisissez une seule journée. Paiement possible en 4 fois sans frais. Prise en charge FAFCEA possible.",
-    public: "[à compléter]",
+    public: "Prothésistes ongulaires en exercice qui souhaitent consolider leur technique et se perfectionner.",
     prerequis: "[à compléter]",
     objectifs: [
       "Choisir le Popit adapté à chaque type d'ongle",
