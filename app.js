@@ -68,7 +68,7 @@
       "<div><h4>Contact</h4><p>" + v("adresse") + ", " + v("cp") + " " + v("ville") + "<br>" + v("email") + (S.tel ? "<br>" + esc(S.tel) : "") + "<br>" + v("horaires") + "</p></div>" +
       '<div><h4>Informations</h4><ul><li><a href="formations.html">Formations & programmes</a></li><li><a href="planning.html">Planning</a></li><li><a href="inscription.html">Inscription</a></li><li><a href="accessibilite.html">Accessibilité & handicap</a></li>' + soc + "</ul></div>" +
       '<div><h4>Informations légales</h4><ul><li><a href="mentions-legales.html">Mentions légales</a></li><li><a href="cgv.html">Conditions générales de vente</a></li><li><a href="confidentialite.html">Politique de confidentialité</a></li></ul>' +
-      "<p style=\"margin-top:12px\"><strong>Médiation de la consommation</strong><br>" + v("mediateur_nom") + "<br>" + v("mediateur_adresse") + "<br>" + v("mediateur_site") + "</p></div>" +
+      (S.mediateur_nom ? "<p style=\"margin-top:12px\"><strong>Médiation de la consommation</strong><br>" + v("mediateur_nom") + "<br>" + v("mediateur_adresse") + "<br>" + v("mediateur_site") + "</p>" : "") + "</div>" +
       '</div><div class="copy">© ' + new Date().getFullYear() + " " + esc(S.nom || "") + " — Tous droits réservés.</div></div></footer>";
   }
 
@@ -140,7 +140,7 @@
       if (src) html += '<p>Pour protéger votre vie privée, ce service Google ne se charge qu\'après votre clic.</p><button class="btn" type="button">' + esc(label) + "</button> ";
       if (url) html += '<a class="btn ghost" href="' + esc(url) + '" target="_blank" rel="noopener">Ouvrir dans un nouvel onglet</a>';
       el.innerHTML = html;
-      var b = el.querySelector("button");
+      var b = el.querySelector("button"); if (b && el.hasAttribute("data-autoload")) setTimeout(function () { b.click(); }, 0);
       if (b) b.addEventListener("click", function () { el.classList.add("ready"); el.innerHTML = '<iframe src="' + esc(src) + '" title="' + esc(label) + '" loading="lazy"></iframe>'; });
     });
   }
@@ -153,6 +153,19 @@
     Object.keys(map).forEach(function (id) { var el = document.querySelector('[data-render="' + id + '"]'); if (el) el.innerHTML = map[id](); });
     Array.prototype.forEach.call(document.querySelectorAll("[data-site]"), function (el) { el.innerHTML = v(el.getAttribute("data-site")); });
     var socials = document.querySelector("[data-socials]");
+/* médiation : masquée tant que le médiateur n'est pas renseigné dans data.js */
+if (!S.mediateur_nom) {
+var gone = 0;
+Array.prototype.forEach.call(document.querySelectorAll("main h2"), function (h) {
+var m = /^(\d+)\.\s/.exec(h.textContent);
+if (gone && m) h.textContent = h.textContent.replace(/^\d+/, String(+m[1] - gone));
+if (/Médiation/.test(h.textContent) && !h.hasAttribute("data-gone")) {
+var n = h.nextElementSibling;
+while (n && n.tagName !== "H2") { var nx = n.nextElementSibling; n.remove(); n = nx; }
+h.remove(); gone++;
+}
+});
+}
     embeds();
     var burger = document.querySelector(".burger"), menu = document.getElementById("menu");
     if (burger) burger.addEventListener("click", function () { var o = menu.classList.toggle("open"); burger.setAttribute("aria-expanded", o); });
