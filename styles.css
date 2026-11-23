@@ -172,3 +172,6 @@ footer.site,footer.site a{color:#EAD9CB}
 .jour-part{display:inline-block;margin:1.1rem 0 .5rem;padding:.35rem .9rem;background:#4e3e37;color:#fff;font-size:.85rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;border-radius:999px}
 .jour-part span{text-transform:none;letter-spacing:0;font-size:.85rem;font-weight:400;color:inherit;opacity:.85}
 .jour h4 + .jour-part{margin-top:.4rem}
+
+/* Jour 1, Jour 2... : titres plus visibles */
+.jour h4{font-size:1.5rem;font-weight:600;color:var(--or-fonce);text-decoration:underline;text-decoration-color:var(--or);text-decoration-thickness:2px;text-underline-offset:7px;margin-bottom:.4rem}
