@@ -85,7 +85,12 @@
   function detail() {
     return F.map(function (f, i) {
       var obj = (f.objectifs || []).map(function (o) { return "<li>" + esc(o) + "</li>"; }).join("");
-      var prog = (f.programme || []).map(function (p) { return "<li><strong>" + esc(p.jour) + " :</strong> " + esc(p.contenu) + "</li>"; }).join("");
+      function lst(a) { return "<ul>" + a.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul>"; }
+      function part(nom, t, a) { return a && a.length ? '<p class="jour-part">' + nom + (t ? " <span>(" + esc(t) + ")</span>" : "") + "</p>" + lst(a) : ""; }
+      var prog = '<div class="jours">' + (f.programme || []).map(function (p) {
+        if (p.contenu) return '<div class="jour"><h4>' + esc(p.jour) + "</h4><p>" + esc(p.contenu) + "</p></div>";
+        return '<div class="jour"><h4>' + esc(p.jour) + "</h4>" + part("Matin", p.matin_titre, p.matin) + part("Après-midi", p.apresmidi_titre, p.apresmidi) + (p.items ? lst(p.items) : "") + (p.note ? '<p class="jour-note">' + esc(p.note) + "</p>" : "") + "</div>";
+      }).join("") + "</div>";
       var res = [];
       if (f.taux_satisfaction) res.push("Taux de satisfaction : " + esc(f.taux_satisfaction));
       if (f.taux_reussite) res.push("Taux de réussite : " + esc(f.taux_reussite));
@@ -97,7 +102,7 @@
                 "<div><dt>Public concerné</dt><dd>" + esc(f.public) + "</dd></div><div><dt>Prérequis</dt><dd>" + esc(f.prerequis) + "</dd></div>" +
         "<div><dt>Délai d'accès</dt><dd>" + esc(f.delai_acces) + "</dd></div><div><dt>Financements</dt><dd>" + esc(f.financements) + "</dd></div>" +
         "<div><dt>Accessibilité</dt><dd>" + esc(f.accessibilite) + "</dd></div></dl>" +
-        "<h3>Tarifs </h3>" + tarifTable(f) + (f.prix_note ? "<p><small>" + esc(f.prix_note) + "</small></p>" : "") + "<h3>Objectifs</h3><ul>" + obj + "</ul><h3>Programme</h3><ul>" + prog + "</ul>" +
+        "<h3>Tarifs </h3>" + tarifTable(f) + (f.prix_note ? "<p><small>" + esc(f.prix_note) + "</small></p>" : "") + "<h3>Objectifs</h3><ul>" + obj + "</ul><h3>Programme</h3>" + prog +
         "<h3>Méthodes pédagogiques</h3><p>" + esc(f.moyens) + "</p><h3>Évaluation</h3><p>" + esc(f.evaluation) + "</p>" +
         "<h3>Résultats</h3><p>" + resHtml + '</p><div class="btns"><a class="btn" href="inscription.html">Je m\'inscris</a><a class="btn ghost" href="rendez-vous.html">En parler au téléphone</a></div></div></details>';
     }).join("");
