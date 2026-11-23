@@ -68,37 +68,52 @@ window.SITE = {
 };
 
 /* =====================================================================
-   FORMATIONS — source : sa page Booksy (23/11/2026). À relire par Julie.
+   FORMATIONS — programmes fournis par Julie (23/11/2026).
+   programme : une entrée par jour, dans l'ordre. matin / apresmidi = listes,
+   matin_titre / apresmidi_titre = thème facultatif, items = liste simple, note = phrase facultative.
    tarifs = liste de formules ; cpf = tarif si financement CPF (facultatif).
    ===================================================================== */
 window.FORMATIONS = [
   {
     id: "base",
-    titre: "Formation de base — prothésie ongulaire",
+    titre: "Formation de base — Initial gel",
     accroche: "Une formation de base très complète : vous travaillez sur vous, sur main d'entraînement et sur modèle.",
     format: "Présentiel",
-    duree: "3 ou 5 jours (7 h 30 par jour)",
+    duree: "5 jours en groupe, 3 jours en duo ou en privé (7 h 30 par jour)",
     tarifs: [
       { label: "En groupe de 4 élèves max (5 jours)", prix: 1190, cpf: 2500 },
       { label: "En duo (3 jours) — par élève", prix: 1190, cpf: 2500 },
       { label: "En privé (3 jours)", prix: 1610, cpf: 3000 }
     ],
-    prix_note: "Tarif par élève. Pour un financement CPF, se référer au tarif CPF indiqué.",
+    prix_note: "Tarif par élève. En duo et en privé, le programme est identique mais concentré sur 3 jours, sans le jour d'examen. En duo, c'est à vous de trouver votre binôme.",
     public: "Toute personne souhaitant apprendre la prothésie ongulaire, débutantes acceptées.",
     prerequis: "Aucun niveau requis.",
     objectifs: [
-      "Maîtriser la théorie du métier : anatomie, maladies, règles du métier, chimie des produits",
-      "Réaliser un gainage et une pose complète avec différents rallongements (capsules, chablon, popit)",
-      "Réaliser remplissages, dépose, baby-boomer et french",
-      "Connaître les démarches et aides pour s'immatriculer en chambre des métiers"
+      "Maîtriser la théorie du métier : cycle de vie de l'ongle, hygiène et maladies, règles et obligations, chimie des produits",
+      "Réaliser une pose complète au chablon, à la capsule, au Popit plein et au Popit extension",
+      "Réaliser dépose, gainage, remplissage, baby-boomer et french",
+      "Connaître les démarches et les aides pour créer votre entreprise"
     ],
     programme: [
-      { jour: "Théorie", contenu: "Anatomie, maladies, règles du métier, chimie des produits." },
-      { jour: "Pratique", contenu: "Gainage, pose complète avec rallongements (capsules, chablon, popit), remplissages, dépose, baby-boomer, french — sur soi, sur main d'entraînement puis sur modèle." },
-      { jour: "Installation", contenu: "Démarches et aides pour l'immatriculation en chambre des métiers." }
+      { jour: "Jour 1",
+        matin: ["9 h : accueil des élèves", "Présentation des élèves et de la formatrice", "Liste du matériel pour débuter", "Cycle de vie de l'ongle", "Hygiène et maladies de l'ongle", "Les règles du métier et les obligations", "Les termes techniques", "La chimie de nos produits"],
+        apresmidi: ["La dépose, maîtrise de la ponceuse", "La préparation de l'ongle naturel", "La manucure profonde", "La pose du VSP", "Le gainage / renfort à la Rubber base", "La forme ovale", "Démo + entraînement sur soi"] },
+      { jour: "Jour 2",
+        matin: ["La pose complète au chablon", "La forme carrée", "La méthode sans limage", "Démo + entraînement sur soi"],
+        apresmidi: ["La pose complète à la capsule", "La forme amande", "La méthode sans limage", "La pose de la couleur avec précision (façon manucure russe)", "Démo + entraînement sur soi"] },
+      { jour: "Jour 3",
+        matin: ["La pose complète au Popit plein", "La forme coffin / ballerine", "Le baby-boomer en incrustations", "Les proportions de la French idéale", "Démo + entraînement sur soi"],
+        apresmidi: ["La pose complète au Popit extension", "Forme au choix", "La méthode sans limage", "Le baby-boomer (2e méthode)", "Démo + entraînement sur soi"] },
+      { jour: "Jour 4",
+        matin: ["Les démarches et les aides pour la création de votre entreprise", "Le comblage / remplissage", "Apprentissage de quelques décos à réaliser en clientèle", "Démo + entraînement sur soi ou sur capsule"],
+        apresmidi: ["Entraînement libre", "Révision de l'examen théorique sous forme de quiz"] },
+      { jour: "Jour 5",
+        matin: ["9 h : examen théorique (durée : 1 h)", "10 h : début de l'épreuve pratique sur modèle (durée : 5 h). C'est à vous de trouver votre modèle.", "Votre modèle déjeunera avec vous et devra être disponible jusqu'à 16 h environ.", "Elle devra arriver les ongles nus et sans vernis, même transparent."] },
+      { jour: "Fin de formation",
+        items: ["Remise du certificat", "Mes conseils individuels sur vos tarifs à appliquer après la formation", "La prise de photos", "Code promo Almas de 12 %"] }
     ],
-    moyens: "Alternance de théorie et de pratique (sur soi, main d'entraînement, modèle). Groupes de 4 élèves maximum. Programme complet transmis sur demande.",
-    evaluation: "[à compléter : modalités d'évaluation et attestation de fin de formation]",
+    moyens: "Alternance de théorie et de pratique (démonstrations, entraînement sur soi, sur capsule et sur modèle). Groupes de 4 élèves maximum.",
+    evaluation: "En groupe : examen théorique (1 h) et épreuve pratique sur modèle (5 h) le 5e jour. Remise du certificat en fin de formation.",
     delai_acces: "[à compléter : délai entre l'inscription et le début de la formation]",
     accessibilite: "Contactez le référent handicap avant l'inscription pour étudier les adaptations possibles.",
     financements: "Autofinancement ou CPF (tarif CPF indiqué ci-dessus).",
@@ -107,32 +122,68 @@ window.FORMATIONS = [
   },
   {
     id: "perfectionnement",
-    titre: "Perfectionnement — groupe, duo ou privé",
-    accroche: "Pour les professionnelles qui n'arrivent pas à corriger leurs défauts : on revoit toutes les méthodes de rallongement.",
-    format: "Présentiel",
-    duree: "1, 2 ou 3 jours (7 h 30 par jour)",
+    titre: "Perfectionnement en groupe",
+    accroche: "Deux journées au programme bien défini pour revoir toutes les méthodes de rallongement : Popit plein, Popit extension, chablon et capsule.",
+    format: "Présentiel, en groupe de 4 élèves max",
+    duree: "2 jours (7 h 30 par jour)",
     tarifs: [
-      { label: "En groupe (2 jours, 4 élèves max)", prix: 550, cpf: 1500 },
-      { label: "En duo — 1 jour (par élève)", prix: 525, cpf: 1500 },
-      { label: "En duo — 2 jours (par élève)", prix: 875, cpf: 2200 },
-      { label: "En duo — 3 jours (par élève)", prix: 1090, cpf: 3000 },
-      { label: "En privé — 1 jour", prix: 700, cpf: 1500 },
-      { label: "En privé — 2 jours", prix: 1190, cpf: 2500 },
-      { label: "En privé — 3 jours", prix: 1610, cpf: 3000 }
+      { label: "En groupe (2 jours, 4 élèves max)", prix: 550, cpf: 1500 }
     ],
-    prix_note: "En duo et en privé, le planning est 100 % personnalisé selon vos besoins.",
+    prix_note: "Tarif par élève.",
     public: "Prothésistes ongulaires en exercice qui souhaitent corriger leurs défauts et progresser.",
     prerequis: "Niveau base recommandé.",
     objectifs: [
       "Identifier et corriger vos points faibles",
-      "Revoir toutes les méthodes de rallongement",
+      "Revoir toutes les méthodes de rallongement : Popit plein, Popit extension, chablon, capsule",
       "Gagner en précision et en qualité de finition"
     ],
     programme: [
-      { jour: "En groupe (2 jours)", contenu: "Révision de toutes les méthodes de rallongement." },
-      { jour: "En duo ou en privé (1 à 3 jours)", contenu: "Planning élaboré ensemble, 100 % personnalisé selon vos besoins." }
+      { jour: "Jour 1",
+        matin_titre: "Popit plein",
+        matin: ["Présentation des élèves et de la formatrice", "Manucure profonde", "Tout savoir sur le Popit plein", "French paint / baby-boomer", "Forme coffin"],
+        apresmidi_titre: "Extension Popits",
+        apresmidi: ["Extension Popits « True Colors »", "Baby-color au builder gel", "Cuti-glitter", "Technique sans limage", "Forme amande"] },
+      { jour: "Jour 2",
+        matin_titre: "Chablon",
+        matin: ["Extension chablon", "Création d'une extension transparente avec incrustations", "Le limage parfait", "Forme square (le carré parfait)"],
+        apresmidi_titre: "Capsule",
+        apresmidi: ["Extension capsule", "French reverse avec effets et incrustation", "Travailler le polygel", "Forme au choix", "Shooting photo de vos travaux", "Remise des certificats de formation", "Achats possibles au shop avec remise"] }
     ],
-    moyens: "Pratique encadrée et corrections personnalisées. Jamais plus de 4 élèves par session en groupe. Programme complet transmis sur demande.",
+    moyens: "Démonstrations, pratique encadrée et corrections personnalisées. Jamais plus de 4 élèves par session.",
+    evaluation: "[à compléter]",
+    delai_acces: "[à compléter]",
+    accessibilite: "Contactez le référent handicap avant l'inscription pour étudier les adaptations possibles.",
+    financements: "Autofinancement ou CPF (tarif CPF indiqué ci-dessus).",
+    taux_satisfaction: null,
+    taux_reussite: null
+  },
+  {
+    id: "perfectionnement-prive",
+    titre: "Perfectionnement en privé ou en duo",
+    accroche: "Un perfectionnement 100 % à la carte, adapté à votre niveau, à vos lacunes et à vos envies. Vous choisissez la durée : 1, 2 ou 3 jours.",
+    format: "Présentiel, en privé ou en duo",
+    duree: "1, 2 ou 3 jours au choix (7 h 30 par jour)",
+    tarifs: [
+      { label: "En privé — 1 jour", prix: 700, cpf: 1500 },
+      { label: "En privé — 2 jours", prix: 1190, cpf: 2500 },
+      { label: "En privé — 3 jours", prix: 1610, cpf: 3000 },
+      { label: "En duo — 1 jour (par élève)", prix: 525, cpf: 1500 },
+      { label: "En duo — 2 jours (par élève)", prix: 875, cpf: 2200 },
+      { label: "En duo — 3 jours (par élève)", prix: 1090, cpf: 3000 }
+    ],
+    prix_note: "En duo, le tarif est par élève et c'est à vous de trouver votre binôme.",
+    public: "Prothésistes ongulaires en exercice qui souhaitent progresser sur des points précis.",
+    prerequis: "Niveau base recommandé.",
+    objectifs: [
+      "Travailler précisément les techniques de votre choix",
+      "Corriger vos lacunes avec un suivi individuel",
+      "Progresser à votre rythme"
+    ],
+    programme: [
+      { jour: "Programme 100 % à la carte",
+        items: ["Vous choisissez la durée : 1, 2 ou 3 jours.", "Le programme est construit avec vous avant la formation.", "Il s'adapte à votre niveau, à vos lacunes et à vos envies."] }
+    ],
+    moyens: "Accompagnement individuel (en privé) ou à deux (en duo) : démonstrations, pratique encadrée et corrections personnalisées.",
     evaluation: "[à compléter]",
     delai_acces: "[à compléter]",
     accessibilite: "Contactez le référent handicap avant l'inscription pour étudier les adaptations possibles.",
@@ -142,9 +193,9 @@ window.FORMATIONS = [
   },
   {
     id: "amandes-russes",
-    titre: "Formation amandes russes",
+    titre: "Formation Amande russe",
     accroche: "Réaliser de belles amandes russes avec une structure correcte et plusieurs techniques de french reverse, selon les tendances actuelles.",
-    format: "Présentiel",
+    format: "Présentiel, en groupe de 4 élèves max",
     duree: "2 jours (7 h 30 par jour)",
     tarifs: [{ label: "En groupe (4 élèves max)", prix: 700, cpf: 1500 }],
     prix_note: "",
@@ -156,13 +207,53 @@ window.FORMATIONS = [
       "Gagner en technicité et en précision au quotidien"
     ],
     programme: [
-      { jour: "Jours 1 et 2", contenu: "Structure de l'amande russe et techniques de french reverse. [détail du programme à compléter]" }
+      { jour: "Jour 1",
+        matin: ["Présentation des élèves et de la formatrice", "La théorie de la structure de l'Amande russe", "Manucure profonde", "La pose du chablon et ses découpes", "Full cover et French paint"],
+        apresmidi: ["Mise en pratique de la théorie abordée le matin", "Entraînement sur soi"] },
+      { jour: "Jour 2",
+        matin: ["L'Amande russe avec French reverse à effets selon l'inspiration du moment (mosaïque, rose 3D, effet froissé, incrustation nacre, etc.)"],
+        apresmidi: ["Mise en pratique", "Shooting photo de vos travaux", "Remise du certificat de formation", "Achats possibles au shop avec remise exceptionnelle"] }
     ],
-    moyens: "Pratique encadrée en groupe de 4 élèves maximum. Programme complet transmis sur demande.",
+    moyens: "Démonstrations et pratique encadrée en groupe de 4 élèves maximum.",
     evaluation: "[à compléter]",
     delai_acces: "[à compléter]",
     accessibilite: "Contactez le référent handicap avant l'inscription pour étudier les adaptations possibles.",
     financements: "Autofinancement ou CPF (tarif CPF indiqué ci-dessus).",
+    taux_satisfaction: null,
+    taux_reussite: null
+  },
+  {
+    id: "popit",
+    titre: "Formation Popit",
+    accroche: "Maîtrisez le Popit plein et le Popit extension, en petit groupe. Formation sur 1 ou 2 jours.",
+    format: "Présentiel, en groupe uniquement (4 élèves max)",
+    duree: "1 jour au choix (7 h) ou 2 jours (14 h), de 9 h à 16 h 30",
+    tarifs: [
+      { label: "En groupe — 1 jour au choix (7 h)", prix: 390 },
+      { label: "En groupe — 2 jours (14 h)", prix: 590, cpf: 1100 }
+    ],
+    prix_note: "Formation proposée en groupe uniquement, 4 élèves maximum. Paiement possible en 4 fois sans frais. Prise en charge FAFCEA possible.",
+    public: "[à compléter]",
+    prerequis: "[à compléter]",
+    objectifs: [
+      "Choisir le Popit adapté à chaque type d'ongle",
+      "Réaliser une pose complète et un remplissage au Popit plein",
+      "Réaliser une extension Popit, en méthode classique et pour ongles courts"
+    ],
+    programme: [
+      { jour: "Jour 1",
+        items: ["Manucure profonde « russe »", "Analyse des différents types d'ongles", "Choix du Popit adapté selon le type d'ongle", "Pose complète Popit plein", "Remplissage Popit", "Baby-boomer en incrustation", "Différentes déco selon le goût du jour"],
+        note: "Gardez vos ongles pour le remplissage." },
+      { jour: "Jour 2",
+        items: ["Manucure profonde « russe »", "Analyse des différents types d'ongles", "Popit extension méthode classique", "Popit extension méthode ongles courts", "Technique sans limage", "Différentes déco selon le goût du jour", "Apprendre à mettre en valeur vos photos"] },
+      { jour: "En 1 seule journée",
+        items: ["Vous pouvez suivre une seule journée au choix : le Jour 1 ou le Jour 2."] }
+    ],
+    moyens: "Démonstrations et pratique encadrée en groupe de 4 élèves maximum.",
+    evaluation: "[à compléter]",
+    delai_acces: "[à compléter]",
+    accessibilite: "Contactez le référent handicap avant l'inscription pour étudier les adaptations possibles.",
+    financements: "Autofinancement, CPF (formule 2 jours) ou FAFCEA. Paiement possible en 4 fois sans frais.",
     taux_satisfaction: null,
     taux_reussite: null
   }
