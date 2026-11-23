@@ -227,7 +227,7 @@ window.FORMATIONS = [
     titre: "Formation Popit",
     accroche: "Maîtrisez le Popit plein et le Popit extension, en petit groupe. Vous choisissez le Jour 1, le Jour 2 ou les deux.",
     format: "Présentiel, en groupe de 4 élèves max",
-    duree: "Jour 1 uniquement, Jour 2 uniquement ou les 2 jours (7 h par jour), de 9 h à 16 h 30",
+    duree: "1 ou 2 jours (7 h par jour)",
     tarifs: [
       { label: "En groupe — Jour 1 ou Jour 2 au choix (7 h)", prix: 390 },
       { label: "En groupe — Jour 1 + Jour 2 (14 h)", prix: 590, cpf: 1100 }
