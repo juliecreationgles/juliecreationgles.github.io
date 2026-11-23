@@ -145,3 +145,8 @@ mark.todo{background:#fff3b0;color:#6b4e00;padding:1px 6px;border-radius:6px;fon
 /* palette nude doux */
 .topbar{color:#EAD9CB}
 footer.site,footer.site a{color:#EAD9CB}
+
+
+/* logo almas */
+.logo{display:grid;grid-template-columns:auto auto;column-gap:12px;align-items:center}
+.logo::before{content:'';grid-column:1;grid-row:1/span 2;width:61px;height:44px;background:url(IMG_2268.PNG) no-repeat;background-size:90px auto;background-position:-14.7px -11px}
