@@ -42,7 +42,7 @@
   /* ---------- en-tête ---------- */
   function header() {
     var items = [
-      ["index.html", "Accueil"], ["formations.html", "Formations"], ["planning.html", "Planning"],
+      ["index.html", "Accueil"], ["formations.html", "Formations"], ["planning.html", "Planning"], ["tarifs.html", "Tarifs"],
       ["rendez-vous.html", "Rendez-vous téléphonique"], ["index.html#contact", "Contact"]
     ];
     var li = items.map(function (it) {
@@ -66,7 +66,7 @@
       "<div><h4>" + esc(S.nom || "") + "</h4><p>" + esc(S.baseline || "") + "</p>" + q +
       "<p>SIRET " + v("siret") + "<br>N° de déclaration d'activité " + v("nda") + "</p></div>" +
       "<div><h4>Contact</h4><p>" + v("adresse") + ", " + v("cp") + " " + v("ville") + "<br>" + v("email") + (S.tel ? "<br>" + esc(S.tel) : "") + "<br>" + v("horaires") + "</p></div>" +
-      '<div><h4>Informations</h4><ul><li><a href="formations.html">Formations & programmes</a></li><li><a href="planning.html">Planning</a></li><li><a href="inscription.html">Inscription</a></li><li><a href="accessibilite.html">Accessibilité & handicap</a></li>' + soc + "</ul></div>" +
+      '<div><h4>Informations</h4><ul><li><a href="formations.html">Formations & programmes</a></li><li><a href="planning.html">Planning</a></li><li><a href="tarifs.html">Tarifs</a></li><li><a href="inscription.html">Inscription</a></li><li><a href="accessibilite.html">Accessibilité & handicap</a></li>' + soc + "</ul></div>" +
       '<div><h4>Informations légales</h4><ul><li><a href="mentions-legales.html">Mentions légales</a></li><li><a href="cgv.html">Conditions générales de vente</a></li><li><a href="confidentialite.html">Politique de confidentialité</a></li></ul>' +
       (S.mediateur_nom ? "<p style=\"margin-top:12px\"><strong>Médiation de la consommation</strong><br>" + v("mediateur_nom") + "<br>" + v("mediateur_adresse") + "<br>" + v("mediateur_site") + "</p>" : "") + "</div>" +
       '</div><div class="copy">© ' + new Date().getFullYear() + " " + esc(S.nom || "") + " — Tous droits réservés.</div></div></footer>";
@@ -146,10 +146,19 @@
   }
 
   /* ---------- assemblage ---------- */
+  /* ---------- page tarifs ---------- */
+  function tarifsAll() {
+    return F.map(function (f) {
+      return '<div class="tarif-bloc" id="tarif-' + f.id + '" style="margin-bottom:44px"><h2>' + esc(f.titre) + "</h2>" +
+        '<div class="meta" style="margin-bottom:14px"><span class="badge">' + esc(f.format) + '</span><span class="badge">' + esc(f.duree) + "</span></div>" +
+        tarifTable(f) + (f.prix_note ? "<p><small>" + esc(f.prix_note) + "</small></p>" : "") +
+        '<div class="btns"><a class="btn ghost" href="formations.html#' + f.id + '">Voir le programme</a><a class="btn" href="inscription.html">Je m\'inscris</a></div></div>';
+    }).join("");
+  }
   function mount() {
     var h = document.getElementById("site-header"); if (h) h.outerHTML = header();
     var f = document.getElementById("site-footer"); if (f) f.outerHTML = footer();
-    var map = { "cards-all": function () { return cards(); }, "cards-3": function () { return cards(3); }, "detail": detail, "sessions-all": function () { return sessions(); }, "sessions-3": function () { return sessions(3); }, "stats": stats, "avis": avis };
+    var map = { "cards-all": function () { return cards(); }, "cards-3": function () { return cards(3); }, "detail": detail, "sessions-all": function () { return sessions(); }, "sessions-3": function () { return sessions(3); }, "stats": stats, "avis": avis, "tarifs-all": tarifsAll };
     Object.keys(map).forEach(function (id) { var el = document.querySelector('[data-render="' + id + '"]'); if (el) el.innerHTML = map[id](); });
     Array.prototype.forEach.call(document.querySelectorAll("[data-site]"), function (el) { el.innerHTML = v(el.getAttribute("data-site")); });
     var socials = document.querySelector("[data-socials]");
