@@ -234,7 +234,7 @@ window.FORMATIONS = [
     ],
     prix_note: "Formation en groupe de 4 élèves max. Le programme de chaque journée est déjà défini et ne peut pas être modifié si vous choisissez une seule journée. Paiement possible en 4 fois sans frais. Prise en charge FAFCEA possible.",
     public: "Prothésistes ongulaires en exercice qui souhaitent consolider leur technique et se perfectionner.",
-    prerequis: "[à compléter]",
+    prerequis: "Niveau base recommandé.",
     objectifs: [
       "Choisir le Popit adapté à chaque type d'ongle",
       "Réaliser une pose complète et un remplissage au Popit plein",
