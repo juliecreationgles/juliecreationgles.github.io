@@ -43,7 +43,7 @@ window.SITE = {
   /* ---------- CONDITIONS ---------- */
   acompte_pct: "30",                        // ex. "30"
   delai_retractation_jours: "10",         // contrat de formation signé avec un particulier
-  delai_paiement_solde: "de façon échelonnée au fur et à mesure du déroulement de la formation, conformément à l’article L6353-6 du Code du travail",               // ex. "au plus tard le premier jour de la formation"
+  delai_paiement_solde: "de façon échelonnée au fur et à mesure du déroulement de la formation, le jour même pour une formation d’une journée, conformément à l’article L6353-6 du Code du travail",               // ex. "au plus tard le premier jour de la formation"
   delai_reponse: "dans les meilleurs délais",                      // ex. "sous 48 h ouvrées"
 
   /* ---------- LIENS (à créer par Julie, tout est gratuit) ---------- */
