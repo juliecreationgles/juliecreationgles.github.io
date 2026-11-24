@@ -200,3 +200,10 @@ footer.site,footer.site a{color:#EAD9CB}
 
 /* Lien « Contact » : le titre reste visible sous le menu fixe */
 #contact{scroll-margin-top:40px}
+
+/* Petits écrans : le nom et la mention sous le logo passent à la ligne, le menu reste visible */
+@media (max-width:520px){
+  header.site .logo{min-width:0;flex:1 1 auto;margin-right:10px}
+  header.site .logo small{white-space:normal;letter-spacing:.1em;font-size:.56rem;line-height:1.35}
+  header.site .burger{flex:none}
+}
