@@ -25,8 +25,8 @@
   function tarifTable(f, choose) {
     var ch = choose && f.form_entry;
     if (!f.tarifs || !f.tarifs.length) return euro(f.prix);
-    return '<div class="tablewrap"><table class="plan"><thead><tr><th>Formule</th><th>Tarif</th><th>Si financement CPF</th>' + (ch ? '<th></th>' : '') + '</tr></thead><tbody>' +
-      f.tarifs.map(function (t, i) { return "<tr><td>" + esc(t.label) + "</td><td><strong>" + nf(t.prix) + "</strong></td><td>" + (t.cpf ? nf(t.cpf) : "—") + "</td>" + (ch ? "<td>" + (t.form ? '<a class="btn ghost" style="padding:8px 18px;white-space:nowrap" href="' + inscLink(f, i) + '">Choisir</a>' : "") + "</td>" : "") + "</tr>"; }).join("") + "</tbody></table></div>";
+    return '<div class="tablewrap"><table class="plan"><thead><tr><th>Formule</th><th>Tarif</th>' + (ch ? '<th></th>' : '') + '</tr></thead><tbody>' +
+      f.tarifs.map(function (t, i) { return "<tr><td>" + esc(t.label) + "</td><td><strong>" + nf(t.prix) + "</strong></td>" + (ch ? "<td>" + (t.form ? '<a class="btn ghost" style="padding:8px 18px;white-space:nowrap" href="' + inscLink(f, i) + '">Choisir</a>' : "") + "</td>" : "") + "</tr>"; }).join("") + "</tbody></table></div>";
   }
   function fdate(iso) { var d = new Date(iso + "T12:00:00"); return d.toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" }); }
   function fperiod(a, b) {
