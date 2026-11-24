@@ -89,10 +89,10 @@ var form=document.getElementById('jf');
 function opt(type,name,i,t,p,n,req){return '<label class="opt"><input type="'+type+'" name="'+name+'" value="'+i+'"'+(req?' required':'')+'><span><b>'+t+'</b>'+(p?'<em>'+p+'</em>':'')+(n?'<small>'+n+'</small>':'')+'</span></label>';}
 function inp(n,l,type,extra){return '<label class="f">'+l+' <span class="req">*</span><input type="'+(type||'text')+'" name="'+n+'" required'+(extra||'')+'></label>';}
 var h='';
-h+='<fieldset><legend>Vos coordonnées</legend><div class="grid">'+inp('prenom','Prénom','text',' autocomplete="given-name"')+inp('nom','Nom','text',' autocomplete="family-name"')+'</div><div class="grid">'+inp('tel','Numéro de téléphone (WhatsApp)','tel',' autocomplete="tel"')+inp('mail','Adresse e-mail','email',' autocomplete="email"')+'</div>'+inp('adr','Adresse postale','text',' autocomplete="street-address"')+'<div class="grid">'+inp('ville','Ville et code postal','text',' autocomplete="postal-code"')+inp('naiss','Date de naissance','date','')+'</div></fieldset>';
-h+='<fieldset><legend>Choix de la formation</legend><p class="hint">Formations éligibles au CPF : en cas de financement par le CPF, le tarif est majoré pour couvrir les frais de gestion de l\'organisme partenaire. Le tarif CPF vous est communiqué sur demande.</p>';
+h+='<fieldset><legend>Choix de la formation et de la date</legend><p class="hint">Formations éligibles au CPF : en cas de financement par le CPF, le tarif est majoré pour couvrir les frais de gestion de l\'organisme partenaire. Le tarif CPF vous est communiqué sur demande.</p>';
 G.forEach(function(g){h+='<h3>'+g.t+'</h3>';g.o.forEach(function(o,i){h+=opt('checkbox',g.k,i,o[1],o[2],o[3]);});h+='<div class="jf-gdates" id="jf-dl-'+g.k+'"></div>';});
 h+='</fieldset>';
+h+='<fieldset><legend>Vos coordonnées</legend><div class="grid">'+inp('prenom','Prénom','text',' autocomplete="given-name"')+inp('nom','Nom','text',' autocomplete="family-name"')+'</div><div class="grid">'+inp('tel','Numéro de téléphone (WhatsApp)','tel',' autocomplete="tel"')+inp('mail','Adresse e-mail','email',' autocomplete="email"')+'</div>'+inp('adr','Adresse postale','text',' autocomplete="street-address"')+'<div class="grid">'+inp('ville','Ville et code postal','text',' autocomplete="postal-code"')+inp('naiss','Date de naissance','date','')+'</div></fieldset>';
 h+='<fieldset><legend>Financement</legend><h3>Mode de financement <span class="req">*</span></h3>';
 FIN.forEach(function(o,i){h+=opt('radio','fin',i,o[1],'',o[2],i===0);});
 h+='</fieldset>';
@@ -156,7 +156,7 @@ ev.preventDefault();var err=document.getElementById('jf-err');err.textContent=''
 if(form.elements.website.value){done();return;}
 var P=new URLSearchParams(),any=false;
 G.forEach(function(g){Array.prototype.forEach.call(form.querySelectorAll('input[name="'+g.k+'"]:checked'),function(x){any=true;P.append('entry.'+E[g.k],g.o[+x.value][0]);});});
-if(!any){err.textContent='Veuillez choisir au moins une formation.';form.querySelectorAll('fieldset')[1].scrollIntoView({behavior:'smooth'});return;}
+if(!any){err.textContent='Veuillez choisir au moins une formation.';form.querySelectorAll('fieldset')[0].scrollIntoView({behavior:'smooth'});return;}
 ['nom','prenom','tel','mail','adr','ville'].forEach(function(k){P.append('entry.'+E[k],form.elements[k].value.trim());});
 var d=form.elements.naiss.value.split('-');P.append('entry.'+E.naiss+'_year',d[0]);P.append('entry.'+E.naiss+'_month',String(+d[1]));P.append('entry.'+E.naiss+'_day',String(+d[2]));
 var f=form.querySelector('input[name="fin"]:checked');P.append('entry.'+E.fin,FIN[+f.value][0]);
