@@ -317,3 +317,32 @@ h.remove(); gone++;
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", function () { setTimeout(go, 0); }); else setTimeout(go, 0);
 })();
+
+/* Inscription : coche la formule choisie sur la page Tarifs (bouton « Choisir ») */
+(function () {
+  var NAMES = { "base": "bases", "popit": "popit", "perfectionnement": "perf", "perfectionnement-prive": "coach", "amandes-russes": "amandes" };
+  function go() {
+    if (!/inscription/.test(location.pathname)) return;
+    var m = /[?&]f=([^&#]+)/.exec(location.search), n = /[?&]t=(\d+)/.exec(location.search);
+    if (!m || !n) return;
+    var id = decodeURIComponent(m[1]), name = NAMES[id], tries = 0;
+    if (!name) return;
+    var iv = setInterval(function () {
+      var box = document.querySelector('main form input[type="checkbox"][name="' + name + '"][value="' + n[1] + '"]');
+      if (!box && ++tries < 40) return;
+      clearInterval(iv);
+      if (!box) return;
+      if (!box.checked) { box.checked = true; box.dispatchEvent(new Event("input", { bubbles: true })); box.dispatchEvent(new Event("change", { bubbles: true })); }
+      var F = window.FORMATIONS || [], f = null, i;
+      for (i = 0; i < F.length; i++) if (F[i].id === id) f = F[i];
+      var t = f && f.tarifs && f.tarifs[+n[1]], form = box.closest("form");
+      if (f && t && form && !document.getElementById("pick-note")) {
+        var note = document.createElement("div"); note.id = "pick-note"; note.className = "notice"; note.style.marginBottom = "16px";
+        note.textContent = "Formule choisie : " + f.titre + " — " + t.label + ". Elle est déjà cochée dans le bulletin ci-dessous.";
+        form.parentNode.insertBefore(note, form);
+      }
+    }, 50);
+  }
+  /* pick-box */
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", go); else go();
+})();
