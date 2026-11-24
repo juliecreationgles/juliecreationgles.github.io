@@ -187,3 +187,13 @@ footer.site,footer.site a{color:#EAD9CB}
 /* PHOTO QUI SUIS-JE : cadrée de la tête aux hanches */
 .about .photo img.buste { object-position: 50% 0; transform: scale(1.55); transform-origin: 50% 0; }
 @media (max-width: 860px) { .about .photo { width: 100%; margin: 0 auto; } }
+
+/* Tarifs : chaque formation bien séparée et aérée */
+[data-render="tarifs-all"] .tarif-bloc{margin:0;padding:48px 0;border-bottom:1px solid #e6d9c6}
+[data-render="tarifs-all"] .tarif-bloc:first-child{padding-top:8px}
+[data-render="tarifs-all"] .tarif-bloc:last-child{border-bottom:0}
+[data-render="tarifs-all"] .tarif-bloc h2{margin-bottom:18px}
+[data-render="tarifs-all"] .tarif-bloc .meta{margin-bottom:24px}
+[data-render="tarifs-all"] .tarif-bloc .tablewrap{margin-bottom:20px}
+[data-render="tarifs-all"] .tarif-bloc p{margin:0 0 24px}
+[data-render="tarifs-all"] .tarif-bloc .btns{margin-top:24px}
