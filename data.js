@@ -72,8 +72,9 @@ window.SITE = {
    programme : une entrée par jour, dans l'ordre. matin / apresmidi = listes,
    matin_titre / apresmidi_titre = thème facultatif, items = liste simple, note = phrase facultative.
    tarifs = liste de formules ; cpf = tarif si financement CPF (facultatif).
-form_entry = n° de la question dans le Google Form ; form = texte EXACT de la case à cocher
-(si vous changez le texte d'une réponse dans le Google Form, recopiez-le ici, sinon la case ne sera plus pré-cochée).
+Bouton « Choisir » (page Tarifs) : il coche la case dans le bulletin d'inscription selon l'ORDRE des tarifs.
+Si vous ajoutez, supprimez ou déplacez un tarif ici, faites la même chose dans le bulletin (inscription.html).
+form_entry / form : servent seulement si le formulaire Google est intégré directement (texte EXACT de la réponse).
    ===================================================================== */
 window.FORMATIONS = [
   {
