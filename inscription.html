@@ -56,7 +56,7 @@
 /* Bulletin aux couleurs du site, envoyé dans la Google Form « Formulaire de pré-inscription ».
    IMPORTANT : le 1er texte de chaque option doit être IDENTIQUE à l'option de la Google Form. */
 var FORM='https://docs.google.com/forms/d/e/1FAIpQLSf359fmJnEunw0QHTfEWp3EVXIY7nTO6SdJQzg-3DhQitSZ2Q';
-var E={nom:'1465920293',prenom:'1628951171',tel:'638788175',mail:'848055530',adr:'957127243',ville:'1967326642',naiss:'1722846103',bases:'595580456',perf:'1039470647',coach:'1129581237',popit:'1385463453',amandes:'408503881',fin:'950250728',dates:'933647042',handi:'2068296360'};
+var E={nom:'1465920293',prenom:'1628951171',tel:'638788175',mail:'848055530',adr:'957127243',ville:'1967326642',naiss:'1722846103',bases:'595580456',perf:'1039470647',coach:'1129581237',popit:'1385463453',amandes:'408503881',fin:'950250728',dates:'933647042',handi:'2068296360',image:'1268460802'};
 var G=[
 {k:'bases',t:'Formation de base',o:[
 ['En groupe -- 5 jours 1190€ (CPF 2500€)','En groupe de 4 élèves · 5 jours','1 190 € · CPF 2 500 €',''],
@@ -84,6 +84,7 @@ var FIN=[
 ['CPF (150€ de reste à charge si vous n\'êtes pas inscrit(e) chez FranceTravail, déduit du tarif de la formation)','CPF','150 € de reste à charge si vous n\'êtes pas inscrit(e) chez France Travail, déduits du tarif de la formation.']];
 var DATE_AUTO='A definir';
 var HANDI=['Oui    (précisez dans "Autre")','non'];
+var IMG=["Oui, j'accepte d'apparaître (visage reconnaissable) sur les photos et vidéos publiées sur Instagram, Facebook et ce site, et d'y être identifiée","Oui, mais sans être identifiée (pas de nom ni de compte mentionné)","Non"];
 var form=document.getElementById('jf');
 function opt(type,name,i,t,p,n,req){return '<label class="opt"><input type="'+type+'" name="'+name+'" value="'+i+'"'+(req?' required':'')+'><span><b>'+t+'</b>'+(p?'<em>'+p+'</em>':'')+(n?'<small>'+n+'</small>':'')+'</span></label>';}
 function inp(n,l,type,extra){return '<label class="f">'+l+' <span class="req">*</span><input type="'+(type||'text')+'" name="'+n+'" required'+(extra||'')+'></label>';}
@@ -96,6 +97,7 @@ h+='<fieldset><legend>Financement</legend><h3>Mode de financement <span class="r
 FIN.forEach(function(o,i){h+=opt('radio','fin',i,o[1],'',o[2],i===0);});
 h+='<p class="hint">Les dates de votre formation seront fixées ensemble après réception de votre bulletin.</p></fieldset>';
 h+='<fieldset><legend>Accueil</legend><h3>Situation de handicap <span class="req">*</span></h3><p class="hint">Afin de vous accueillir dans les meilleures conditions, souhaitez-vous m\'indiquer si vous êtes en situation de handicap nécessitant un aménagement particulier ?</p>'+opt('radio','handi',1,'Non','','',true)+opt('radio','handi',0,'Oui','','')+'<label class="f" data-for="handi" hidden><input type="text" name="handi_o" placeholder="Précisez l\'aménagement souhaité"></label></fieldset>';
+h+='<fieldset><legend>Droit à l\'image</legend><h3>Photos et vidéos <span class="req">*</span></h3><p class="hint">Pendant la formation, je publie parfois des photos ou des vidéos sur Instagram, Facebook et ce site. Les photos de vos travaux (mains, sans visage) peuvent être publiées, sauf si vous vous y opposez. Pour les photos où l\'on reconnaît votre visage, faites votre choix ci-dessous. Refuser n\'a aucune conséquence sur votre formation, et vous pouvez changer d\'avis à tout moment (article 9 des <a href="cgv.html">CGV</a>).</p>'+IMG.map(function(t,i){return opt('radio','image',i,t,'','',i===0);}).join('')+'</fieldset>';
 h+='<input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><p id="jf-err" role="alert"></p><button class="btn" type="submit">Envoyer mon bulletin</button>';
 form.innerHTML=h;
 form.addEventListener('change',function(){var r=form.querySelector('input[name="handi"]:checked');form.querySelector('[data-for="handi"]').hidden=!(r&&r.value==='0');});
@@ -112,6 +114,7 @@ var f=form.querySelector('input[name="fin"]:checked');P.append('entry.'+E.fin,FI
 P.append('entry.'+E.dates,DATE_AUTO);
 var r=form.querySelector('input[name="handi"]:checked');P.append('entry.'+E.handi,HANDI[+r.value]);
 if(r.value==='0'&&form.elements.handi_o.value.trim()){P.append('entry.'+E.handi,'__other_option__');P.append('entry.'+E.handi+'.other_option_response',form.elements.handi_o.value.trim());}
+var im=form.querySelector('input[name="image"]:checked');P.append('entry.'+E.image,IMG[+im.value]);
 P.append('fvv','1');P.append('pageHistory','0');
 var btn=form.querySelector('button[type=submit]');btn.disabled=true;btn.textContent='Envoi en cours…';
 fetch(FORM+'/formResponse',{method:'POST',mode:'no-cors',body:P}).then(done).catch(function(){btn.disabled=false;btn.textContent='Envoyer mon bulletin';err.textContent='L\'envoi a échoué. Vérifiez votre connexion et réessayez, ou écrivez-moi par e-mail.';});
