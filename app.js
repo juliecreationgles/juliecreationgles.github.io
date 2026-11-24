@@ -118,9 +118,9 @@
                 "<div><dt>Public concerné</dt><dd>" + esc(f.public) + "</dd></div><div><dt>Prérequis</dt><dd>" + esc(f.prerequis) + "</dd></div>" +
         "<div><dt>Délai d'accès</dt><dd>" + esc(f.delai_acces) + "</dd></div><div><dt>Financements</dt><dd>" + esc(f.financements) + "</dd></div>" +
         "<div><dt>Accessibilité</dt><dd>" + esc(f.accessibilite) + "</dd></div></dl>" +
-        "<h3>Tarifs </h3>" + tarifTable(f) + (f.prix_note ? "<p><small>" + esc(f.prix_note) + "</small></p>" : "") + "<h3>Objectifs</h3><ul>" + obj + "</ul><h3>Programme</h3>" + prog +
+        "<h3>Tarifs </h3>" + tarifTable(f, true) + (f.prix_note ? "<p><small>" + esc(f.prix_note) + "</small></p>" : "") + "<h3>Objectifs</h3><ul>" + obj + "</ul><h3>Programme</h3>" + prog +
         "<h3>Méthodes pédagogiques</h3><p>" + esc(f.moyens) + "</p><h3>Évaluation</h3><p>" + esc(f.evaluation) + "</p>" +
-        "<h3>Résultats</h3><p>" + resHtml + '</p><div class="btns"><a class="btn" href="inscription.html">Je m\'inscris</a><a class="btn ghost" href="rendez-vous.html">En parler au téléphone</a><a class="btn ghost" href="#ask">Poser ma question</a></div></div></details>';
+        "<h3>Résultats</h3><p>" + resHtml + '</p><div class="btns"><a class="btn" href="' + (f.tarifs && f.tarifs.length === 1 ? inscLink(f, 0) : 'inscription.html') + '">Je m\'inscris</a><a class="btn ghost" href="rendez-vous.html">En parler au téléphone</a><a class="btn ghost" href="#ask">Poser ma question</a></div></div></details>';
     }).join("");
   }
 
