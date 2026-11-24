@@ -157,7 +157,7 @@
       return '<div class="tarif-bloc" id="tarif-' + f.id + '" style="margin-bottom:44px"><h2>' + esc(f.titre) + "</h2>" +
         '<div class="meta" style="margin-bottom:14px"><span class="badge">' + esc(f.format) + '</span><span class="badge">' + esc(f.duree) + "</span></div>" +
         tarifTable(f) + (f.prix_note ? "<p><small>" + esc(f.prix_note) + "</small></p>" : "") +
-        '<div class="btns"><a class="btn ghost" href="formations.html#' + f.id + '">Voir le programme</a><a class="btn" href="inscription.html">Je m\'inscris</a></div></div>';
+        '<div class="btns"><a class="btn ghost" href="formations.html#' + f.id + '">Voir le programme</a><a class="btn" href="inscription.html">Je m\'inscris</a><a class="btn ghost" href="#ask">Poser ma question</a></div></div>';
     }).join("");
   }
   function mount() {
