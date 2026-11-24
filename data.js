@@ -20,7 +20,7 @@ window.SITE = {
   horaires: "Sur rendez-vous, 9h-17h",
 
   /* ---------- LÉGAL (mentions légales) ---------- */
-  forme: "Entrepreneur individuel (micro-entreprise)",   // à confirmer
+  forme: "Entrepreneur individuel",   // à confirmer
   siret: "522 448 091 00028",
   nda: "93132000613",
   region_nda: "Provence-Alpes-Côte d'Azur",
