@@ -235,14 +235,6 @@ h.remove(); gone++;
         na.textContent = "Simulateur de devis";
         host.parentNode.insertBefore(n, host.nextSibling);
       }
-      var f = document.getElementById("formulaire");
-      if (f && !document.getElementById("sim-hint")) {
-        var p = document.createElement("p");
-        p.id = "sim-hint";
-        p.style.cssText = "text-align:center;margin:0 0 1rem;font-size:.95rem";
-        p.innerHTML = 'Besoin d’un chiffrage avant de vous inscrire ? <a href="simulateur-de-devis.html">Estimez votre devis en 1 minute</a>.';
-        f.parentNode.insertBefore(p, f);
-      }
       if (/inscription|simulateur/.test(page) || document.getElementById("ask")) return;
       var d = (window.SITE && window.SITE.delai_reponse) || "sous 48 h";
       var s = document.createElement("section");
