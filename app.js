@@ -129,7 +129,7 @@
     var today = new Date().toISOString().slice(0, 10);
     var list = SE.filter(function (s) { return s.fin >= today; }).sort(function (a, b) { return a.debut < b.debut ? -1 : 1; });
     if (limit) list = list.slice(0, limit);
-    if (!list.length) return '<div class="notice"><strong>Aucune date n\'est publiée pour le moment.</strong> Écrivez-nous ou prenez un rendez-vous téléphonique : de nouvelles sessions sont régulièrement ouvertes.</div>';
+    if (!list.length) return '<div class="notice"><strong>Aucune date n\'est publiée pour le moment.</strong></div>';
     var rows = list.map(function (s) {
       var f = fById(s.formation) || { titre: s.formation };
       var st = s.places <= 0 ? '<span class="badge complet">Complet</span>' : (s.places <= 2 ? '<span class="badge peu">Dernières places (' + s.places + ")</span>" : '<span class="badge ok">Places disponibles</span>');
@@ -182,7 +182,7 @@
     var f = document.getElementById("site-footer"); if (f) f.outerHTML = footer();
     var map = { "cards-all": function () { return cards(); }, "cards-3": function () { return cards(3); }, "detail": detail, "sessions-all": function () { return sessions(); }, "sessions-3": function () { return sessions(3); }, "stats": stats, "avis": avis, "tarifs-all": tarifsAll };
     Object.keys(map).forEach(function (id) { var el = document.querySelector('[data-render="' + id + '"]'); if (el) el.innerHTML = map[id](); });
-    Array.prototype.forEach.call(document.querySelectorAll("[data-site]"), function (el) { el.innerHTML = v(el.getAttribute("data-site")); });
+    Array.prototype.forEach.call(document.querySelectorAll("[data-site]"), function (el) { var k = el.getAttribute("data-site"); el.innerHTML = (k === "a_propos" && S.a_propos) ? S.a_propos : v(k); });
     var socials = document.querySelector("[data-socials]");
 /* médiation : masquée tant que le médiateur n'est pas renseigné dans data.js */
 if (!S.mediateur_nom) {
