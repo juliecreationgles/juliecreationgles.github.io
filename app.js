@@ -302,6 +302,7 @@ h.remove(); gone++;
 (function () {
   function go() {
     if (/inscription|simulateur/.test(location.pathname)) return;
+    if (/(^|\/)(index\.html)?$/.test(location.pathname)) return; /* pas sur la page d'accueil */
     var hero = document.querySelector("main .btns");
     if (!hero || hero.querySelector('a[href="#ask"]')) return;
     if (!hero.querySelector('a[href$="inscription.html"]')) return;
