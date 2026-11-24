@@ -121,6 +121,41 @@ window.FORMATIONS = [
     taux_reussite: null
   },
   {
+    id: "popit",
+    titre: "Formation Popit",
+    accroche: "Maîtrisez le Popit plein et le Popit extension, en petit groupe. Au choix : uniquement le Jour 1, uniquement le Jour 2, ou les 2 jours.",
+    format: "Présentiel, en groupe de 4 élèves max",
+    duree: "1 ou 2 jours (7 h par jour)",
+    tarifs: [
+      { label: "1 journée au choix : Jour 1 ou Jour 2 (7 h)", prix: 390 },
+      { label: "Les 2 jours : Jour 1 + Jour 2 (14 h)", prix: 590, cpf: 1500 }
+    ],
+    prix_note: "Formation en groupe de 4 élèves max. Le programme de chaque journée est déjà défini et ne peut pas être modifié si vous choisissez une seule journée. Financement CPF possible uniquement pour la formule 2 jours (pas pour une seule journée).",
+    public: "Prothésistes ongulaires en exercice qui souhaitent consolider leur technique et se perfectionner.",
+    prerequis: "Niveau base recommandé.",
+    objectifs: [
+      "Choisir le Popit adapté à chaque type d'ongle",
+      "Réaliser une pose complète et un remplissage au Popit plein",
+      "Réaliser une extension Popit, en méthode classique et pour ongles courts"
+    ],
+    programme: [
+      { jour: "Jour 1",
+        items: ["Manucure profonde « russe »", "Analyse des différents types d'ongles", "Choix du Popit adapté selon le type d'ongle", "Pose complète Popit plein", "Remplissage Popit", "Baby-boomer en incrustation", "Différentes déco selon le goût du jour"],
+        note: "Gardez vos ongles pour le remplissage." },
+      { jour: "Jour 2",
+        items: ["Manucure profonde « russe »", "Analyse des différents types d'ongles", "Popit extension méthode classique", "Popit extension méthode ongles courts", "Technique sans limage", "Différentes déco selon le goût du jour", "Apprendre à mettre en valeur vos photos"] },
+      { jour: "1 ou 2 journées au choix",
+        items: ["Vous pouvez choisir uniquement le Jour 1, uniquement le Jour 2, ou les deux.", "Attention : le programme de chaque journée est déjà défini (voir ci-dessus) et ne pourra pas être modifié si vous choisissez une seule journée."] }
+    ],
+    moyens: "Démonstrations et pratique encadrée en groupe de 4 élèves maximum.",
+    evaluation: "Évaluation continue de la pratique sur vos propres mains, à chaque technique, avec une grille de critères (préparation, structure, limage, forme, finition). Bilan individuel et remise du certificat en fin de formation.",
+    delai_acces: "Autofinancement : inscription au plus tard 1 semaine avant le début de la formation. Financement CPF : inscription au plus tard 3 semaines avant.",
+    accessibilite: "Locaux accessibles aux personnes en situation de handicap. Pour toute adaptation, contactez le référent handicap avant l'inscription.",
+    financements: "Autofinancement ou CPF (formule 2 jours uniquement).",
+    taux_satisfaction: null,
+    taux_reussite: null
+  },
+  {
     id: "perfectionnement",
     titre: "Perfectionnement en groupe",
     accroche: "Deux journées au programme bien défini pour revoir toutes les méthodes de rallongement : Popit plein, Popit extension, chablon et capsule.",
@@ -219,41 +254,6 @@ window.FORMATIONS = [
     delai_acces: "Autofinancement : inscription au plus tard 1 semaine avant le début de la formation. Financement CPF : inscription au plus tard 3 semaines avant.",
     accessibilite: "Locaux accessibles aux personnes en situation de handicap. Pour toute adaptation, contactez le référent handicap avant l'inscription.",
     financements: "Autofinancement ou CPF (tarif CPF indiqué ci-dessus).",
-    taux_satisfaction: null,
-    taux_reussite: null
-  },
-  {
-    id: "popit",
-    titre: "Formation Popit",
-    accroche: "Maîtrisez le Popit plein et le Popit extension, en petit groupe. Au choix : uniquement le Jour 1, uniquement le Jour 2, ou les 2 jours.",
-    format: "Présentiel, en groupe de 4 élèves max",
-    duree: "1 ou 2 jours (7 h par jour)",
-    tarifs: [
-      { label: "1 journée au choix : Jour 1 ou Jour 2 (7 h)", prix: 390 },
-      { label: "Les 2 jours : Jour 1 + Jour 2 (14 h)", prix: 590, cpf: 1500 }
-    ],
-    prix_note: "Formation en groupe de 4 élèves max. Le programme de chaque journée est déjà défini et ne peut pas être modifié si vous choisissez une seule journée. Financement CPF possible uniquement pour la formule 2 jours (pas pour une seule journée).",
-    public: "Prothésistes ongulaires en exercice qui souhaitent consolider leur technique et se perfectionner.",
-    prerequis: "Niveau base recommandé.",
-    objectifs: [
-      "Choisir le Popit adapté à chaque type d'ongle",
-      "Réaliser une pose complète et un remplissage au Popit plein",
-      "Réaliser une extension Popit, en méthode classique et pour ongles courts"
-    ],
-    programme: [
-      { jour: "Jour 1",
-        items: ["Manucure profonde « russe »", "Analyse des différents types d'ongles", "Choix du Popit adapté selon le type d'ongle", "Pose complète Popit plein", "Remplissage Popit", "Baby-boomer en incrustation", "Différentes déco selon le goût du jour"],
-        note: "Gardez vos ongles pour le remplissage." },
-      { jour: "Jour 2",
-        items: ["Manucure profonde « russe »", "Analyse des différents types d'ongles", "Popit extension méthode classique", "Popit extension méthode ongles courts", "Technique sans limage", "Différentes déco selon le goût du jour", "Apprendre à mettre en valeur vos photos"] },
-      { jour: "1 ou 2 journées au choix",
-        items: ["Vous pouvez choisir uniquement le Jour 1, uniquement le Jour 2, ou les deux.", "Attention : le programme de chaque journée est déjà défini (voir ci-dessus) et ne pourra pas être modifié si vous choisissez une seule journée."] }
-    ],
-    moyens: "Démonstrations et pratique encadrée en groupe de 4 élèves maximum.",
-    evaluation: "Évaluation continue de la pratique sur vos propres mains, à chaque technique, avec une grille de critères (préparation, structure, limage, forme, finition). Bilan individuel et remise du certificat en fin de formation.",
-    delai_acces: "Autofinancement : inscription au plus tard 1 semaine avant le début de la formation. Financement CPF : inscription au plus tard 3 semaines avant.",
-    accessibilite: "Locaux accessibles aux personnes en situation de handicap. Pour toute adaptation, contactez le référent handicap avant l'inscription.",
-    financements: "Autofinancement ou CPF (formule 2 jours uniquement).",
     taux_satisfaction: null,
     taux_reussite: null
   }
