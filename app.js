@@ -214,8 +214,8 @@ h.remove(); gone++;
 
 /* === Encart « Poser ma question » + lien simulateur === */
 (function () {
-  var FORM = "https://docs.google.com/forms/d/e/1FAIpQLSes4HvZyrk6K3CihgGZ4PLRGnjj5B165DREIntUnr0fi4nHTg/formResponse";
-  var E = { prenom: "entry.1453383954", mail: "entry.2032733479", q: "entry.1870630926" };
+  var FORM = "https://docs.google.com/forms/d/e/1FAIpQLSfI8KNcE1X7rP8NrhAd2sbTBcpbiHoSf2UwEPrh0eWJnmjC8w/formResponse";
+  var E = { prenom: "entry.1057913617", mail: "entry.1175351054", q: "entry.32033401" };
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   function start() {
     var tries = 0;
