@@ -111,7 +111,7 @@
       if (f.taux_satisfaction) res.push("Taux de satisfaction : " + esc(f.taux_satisfaction));
       if (f.taux_reussite) res.push("Taux de réussite : " + esc(f.taux_reussite));
       var resHtml = res.length ? res.join(" · ") : 'Indicateurs en cours de collecte, publiés prochainement.';
-      return '<details class="prog" id="' + f.id + '"' + (i === 0 ? " open" : "") + "><summary><h3>" + esc(f.titre) + (f.exemple ? exBadge : "") + "</h3><span class=\"badge\">" + esc(f.duree) + "</span></summary>" +
+      return '<details class="prog" id="' + f.id + '"' + "><summary><h3>" + esc(f.titre) + (f.exemple ? exBadge : "") + "</h3><span class=\"badge\">" + esc(f.duree) + "</span></summary>" +
         '<div class="prog-body"><p>' + esc(f.accroche) + "</p>" +
         '<dl class="fiche">' +
         "<div><dt>Durée</dt><dd>" + esc(f.duree) + "</dd></div><div><dt>Format</dt><dd>" + esc(f.format) + "</dd></div>" +
@@ -338,4 +338,16 @@ h.remove(); gone++;
   }
   /* pick-box */
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", go); else go();
+})();
+
+/* Programmes : tous fermés ; celui visé par un lien (#id) s'ouvre */
+(function () {
+  function ouvrir() {
+    var id = decodeURIComponent(location.hash.slice(1));
+    if (!id) return;
+    var d = document.getElementById(id);
+    if (d && d.tagName === "DETAILS") { d.open = true; d.scrollIntoView(); }
+  }
+  window.addEventListener("hashchange", ouvrir);
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", function () { setTimeout(ouvrir, 0); }); else setTimeout(ouvrir, 0);
 })();
