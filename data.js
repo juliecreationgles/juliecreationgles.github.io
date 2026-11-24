@@ -77,7 +77,7 @@ window.FORMATIONS = [
   {
     id: "base",
     titre: "Formation de base — Initial",
-    accroche: "Une formation de base très complète : vous travaillez sur vous et sur modèle.",
+    accroche: "Pour débuter ou pour remettre vos connaissances à jour : vous revoyez toutes les bases du métier selon les techniques actuelles, de la théorie jusqu'à la pose complète sur modèle, avec un vrai suivi en petit groupe.",
     format: "Présentiel",
     duree: "5 jours en groupe, 3 jours en duo ou en privé (7 h par jour)",
     tarifs: [
