@@ -137,6 +137,7 @@ form.addEventListener('submit',function(ev){
   ch.forEach(function(c){if(!(CR[c.site]||[]).length)return;var x=form.querySelector('input[name="'+jfNom(c.site)+'"]:checked');if(x)items.push({site:c.site,debut:x.value});else manque.push(c.t+' — '+c.o);});
   ev.preventDefault();ev.stopImmediatePropagation();
   if(manque.length){err.textContent='Choisissez vos dates pour : '+manque.join(' ; ')+'.';document.getElementById('jf-dates').scrollIntoView({behavior:'smooth'});return;}
+  window.__jfDates=ch.map(function(c){var x=form.querySelector('input[name="'+jfNom(c.site)+'"]:checked'),s=x&&(CR[c.site]||[]).filter(function(y){return y.debut===x.value;})[0];return c.t+' — '+c.o+' : '+(s?(s.debut===s.fin?'le '+jfd(s.debut):'du '+jfd(s.debut)+' au '+jfd(s.fin)):'pas de date disponible sur le site, à fixer ensemble');}).join('\n');
   if(!items.length){JF_OK=true;form.requestSubmit();return;}
   var btn=form.querySelector('button[type=submit]');btn.disabled=true;err.textContent='Réservation de vos dates en cours…';
   fetch(API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({items:items,eleve:(form.elements.prenom.value+' '+form.elements.nom.value).trim(),tel:form.elements.tel.value,mail:form.elements.mail.value})})
@@ -156,7 +157,7 @@ if(!any){err.textContent='Veuillez choisir au moins une formation.';form.querySe
 ['nom','prenom','tel','mail','adr','ville'].forEach(function(k){P.append('entry.'+E[k],form.elements[k].value.trim());});
 var d=form.elements.naiss.value.split('-');P.append('entry.'+E.naiss+'_year',d[0]);P.append('entry.'+E.naiss+'_month',String(+d[1]));P.append('entry.'+E.naiss+'_day',String(+d[2]));
 var f=form.querySelector('input[name="fin"]:checked');P.append('entry.'+E.fin,FIN[+f.value][0]);
-P.append('entry.'+E.dates,DATE_AUTO);
+P.append('entry.'+E.dates,window.__jfDates||'Aucune date choisie sur le site');
 var r=form.querySelector('input[name="handi"]:checked');P.append('entry.'+E.handi,HANDI[+r.value]);
 if(r.value==='0'&&form.elements.handi_o.value.trim()){P.append('entry.'+E.handi,'__other_option__');P.append('entry.'+E.handi+'.other_option_response',form.elements.handi_o.value.trim());}
 if(r.value==='0'){if(!form.elements.handi_c.checked){err.textContent='Pour que je puisse tenir compte de votre situation de handicap, cochez la case de consentement (ou répondez « Non »).';return;}P.append('entry.963409889','J\'accepte que cette information de santé soit utilisée uniquement pour adapter mon accueil et ma formation. Je peux retirer mon accord à tout moment.');}
