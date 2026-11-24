@@ -102,7 +102,7 @@ details.prog[open]>summary::after{content:'–'}
 
 /* encadrés */
 .notice{background:#fff;border-left:4px solid var(--or);border-radius:12px;padding:18px 22px;margin:22px 0}
-.notice.rose{border-color:#d98c99;background:#fdf1f3}
+.notice.rose{border-color:var(--or-fonce);background:var(--creme2);border-radius:28px}
 .embed{background:#fff;border:1px dashed #d9c8ae;border-radius:var(--rayon);padding:34px;text-align:center}
 .embed iframe{width:100%;min-height:720px;border:0;border-radius:12px}
 .embed.ready{padding:0;border:0;background:none}
