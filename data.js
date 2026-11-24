@@ -51,7 +51,7 @@ window.SITE = {
   form_embed_url: "https://docs.google.com/forms/d/e/1FAIpQLSf359fmJnEunw0QHTfEWp3EVXIY7nTO6SdJQzg-3DhQitSZ2Q/viewform?embedded=true",       // lien d'intégration du formulaire (« Envoyer > < > intégrer » : l'adresse après src=)
   rdv_url: "https://calendar.app.google/MR1W8x9pdVdgkJM3A",              // lien de la page de réservation Google Agenda (RDV téléphonique)
   rdv_embed_url: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ38p1T2T-eZYaJdIhm-vNgGmbeigZxIJErSFffQ5PJcBSzEjbCZJXvCrbyfIwWgrb40FtNaPFDA?gv=true",        // même adresse, version « intégrer » (facultatif : sinon le bouton ouvre le lien)
-  planning_sheet_url: "",   // facultatif : Google Sheet publié sur le web pour afficher un planning vivant
+  planning_sheet_url: "https://calendar.google.com/calendar/embed?src=484d16fa1d596b974c757a41473d82a11f2007270e0dbbb0396b7ea564fb9826%40group.calendar.google.com&ctz=Europe%2FParis&hl=fr&mode=AGENDA&showPrint=0&showCalendars=0&showTz=0", // agenda Google « Sessions de formation » (public) : chaque session ajoutée dans cet agenda apparaît sur la page Planning
   instagram: "https://www.instagram.com/julie_creationgles/", facebook: "https://www.facebook.com/julie.zobel.35", tiktok: "https://www.tiktok.com/@julie.creationgles",
 
   /* ---------- TEXTES ---------- */
