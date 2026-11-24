@@ -79,7 +79,7 @@ window.FORMATIONS = [
     titre: "Formation de base — Initial",
     accroche: "Pour débuter ou pour remettre vos connaissances à jour : vous revoyez toutes les bases du métier selon les techniques actuelles, de la théorie jusqu'à la pose complète sur modèle, avec un vrai suivi en petit groupe.",
     format: "Présentiel",
-    duree: "5 jours en groupe, 3 jours en duo ou en privé (7 h par jour : de 9 h à 16 h 30, avec 30 min de pause déjeuner entre midi et deux)",
+    duree: "5 jours en groupe, 3 jours en duo ou en privé (7 h par jour : de 9 h à 16 h 30, avec 30 min de pause déjeuner)",
     tarifs: [
       { label: "En groupe de 4 élèves max (5 jours)", prix: 1190, cpf: 2500 },
       { label: "En duo (3 jours) — par élève", prix: 1190, cpf: 2500 },
@@ -123,7 +123,7 @@ window.FORMATIONS = [
     titre: "Formation Popit",
     accroche: "Maîtrisez le Popit plein, le Popit extension et la méthode sans limage, en petit groupe. Au choix : uniquement le Jour 1, uniquement le Jour 2, ou les 2 jours.",
     format: "Présentiel, en groupe de 4 élèves max",
-    duree: "1 ou 2 jours (7 h par jour : de 9 h à 16 h 30, avec 30 min de pause déjeuner entre midi et deux)",
+    duree: "1 ou 2 jours (7 h par jour : de 9 h à 16 h 30, avec 30 min de pause déjeuner)",
     tarifs: [
       { label: "1 journée au choix : Jour 1 ou Jour 2 (7 h)", prix: 390 },
       { label: "Les 2 jours : Jour 1 + Jour 2 (14 h)", prix: 590, cpf: 1500 }
@@ -159,7 +159,7 @@ window.FORMATIONS = [
     titre: "Perfectionnement multitechnique",
     accroche: "Deux journées au programme bien défini pour revoir toutes les méthodes de rallongement (Popit plein, Popit extension, chablon et capsule), maîtriser la méthode sans limage et soigner la préparation des cuticules. L'objectif : perfectionner votre technique et gagner en qualité de finition.",
     format: "Présentiel, en groupe de 4 élèves max",
-    duree: "2 jours (7 h par jour : de 9 h à 16 h 30, avec 30 min de pause déjeuner entre midi et deux)",
+    duree: "2 jours (7 h par jour : de 9 h à 16 h 30, avec 30 min de pause déjeuner)",
     tarifs: [
       { label: "En groupe (2 jours, 4 élèves max)", prix: 550, cpf: 1500 }
     ],
@@ -198,7 +198,7 @@ window.FORMATIONS = [
     titre: "Coaching privé ou en duo",
     accroche: "Un coaching 100 % à la carte, adapté à votre niveau, à vos lacunes et à vos envies. Vous choisissez la durée : 1, 2 ou 3 jours.",
     format: "Présentiel, en privé ou en duo",
-    duree: "1, 2 ou 3 jours au choix (7 h par jour : de 9 h à 16 h 30, avec 30 min de pause déjeuner entre midi et deux)",
+    duree: "1, 2 ou 3 jours au choix (7 h par jour : de 9 h à 16 h 30, avec 30 min de pause déjeuner)",
     tarifs: [
       { label: "En privé — 1 jour", prix: 700, cpf: 1500 },
       { label: "En privé — 2 jours", prix: 1190, cpf: 2500 },
@@ -232,7 +232,7 @@ window.FORMATIONS = [
     titre: "Formation Amande russe",
     accroche: "Réalisez de belles amandes russes avec une structure impeccable et des french reverse selon les tendances du moment. Une formation à la fois artistique et technique, qui vous fera gagner en précision.",
     format: "Présentiel, en groupe de 4 élèves max",
-    duree: "2 jours (7 h par jour : de 9 h à 16 h 30, avec 30 min de pause déjeuner entre midi et deux)",
+    duree: "2 jours (7 h par jour : de 9 h à 16 h 30, avec 30 min de pause déjeuner)",
     tarifs: [{ label: "En groupe (4 élèves max)", prix: 700, cpf: 1500 }],
     prix_note: "",
     public: "Prothésistes ongulaires en exercice.",
