@@ -22,10 +22,11 @@
     if (f.tarifs && f.tarifs.length) { var m = Math.min.apply(null, f.tarifs.map(function (t) { return t.prix; })); return (f.tarifs.length > 1 ? "À partir de " : "") + nf(m) + ""; }
     return euro(f.prix);
   }
-  function tarifTable(f) {
+  function tarifTable(f, choose) {
+    var ch = choose && f.form_entry;
     if (!f.tarifs || !f.tarifs.length) return euro(f.prix);
-    return '<div class="tablewrap"><table class="plan"><thead><tr><th>Formule</th><th>Tarif</th><th>Si financement CPF</th></tr></thead><tbody>' +
-      f.tarifs.map(function (t) { return "<tr><td>" + esc(t.label) + "</td><td><strong>" + nf(t.prix) + "</strong></td><td>" + (t.cpf ? nf(t.cpf) : "—") + "</td></tr>"; }).join("") + "</tbody></table></div>";
+    return '<div class="tablewrap"><table class="plan"><thead><tr><th>Formule</th><th>Tarif</th><th>Si financement CPF</th>' + (ch ? '<th></th>' : '') + '</tr></thead><tbody>' +
+      f.tarifs.map(function (t, i) { return "<tr><td>" + esc(t.label) + "</td><td><strong>" + nf(t.prix) + "</strong></td><td>" + (t.cpf ? nf(t.cpf) : "—") + "</td>" + (ch ? "<td>" + (t.form ? '<a class="btn ghost" style="padding:8px 18px;white-space:nowrap" href="' + inscLink(f, i) + '">Choisir</a>' : "") + "</td>" : "") + "</tr>"; }).join("") + "</tbody></table></div>";
   }
   function fdate(iso) { var d = new Date(iso + "T12:00:00"); return d.toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" }); }
   function fperiod(a, b) {
@@ -36,6 +37,21 @@
     return "Du " + fdate(a) + " au " + fdate(b);
   }
   function fById(id) { for (var i = 0; i < F.length; i++) if (F[i].id === id) return F[i]; return null; }
+  /* lien tarif -> case pré-cochée dans le Google Form (form_entry / form dans data.js) */
+  function inscLink(f, i) { return "inscription.html?f=" + encodeURIComponent(f.id) + "&t=" + i; }
+  function picked() {
+    var m = /[?&]f=([^&#]+)/.exec(location.search), n = /[?&]t=(\d+)/.exec(location.search);
+    if (!m || !n) return null;
+    var f = fById(decodeURIComponent(m[1])), t = f && f.tarifs && f.tarifs[+n[1]];
+    return (f && f.form_entry && t && t.form) ? { f: f, t: t } : null;
+  }
+  function prefill(url) { var p = picked(); if (!url || !p) return url; return url + (url.indexOf("?") < 0 ? "?" : "&") + p.f.form_entry + "=" + encodeURIComponent(p.t.form); }
+  function showPick(el) {
+    var p = picked(); if (!p || document.getElementById("pick-note")) return;
+    var n = document.createElement("div"); n.id = "pick-note"; n.className = "notice"; n.style.marginBottom = "16px";
+    n.innerHTML = "Formule choisie : <strong>" + esc(p.f.titre) + " — " + esc(p.t.label) + "</strong>. La case correspondante est déjà cochée dans le formulaire.";
+    el.parentNode.insertBefore(n, el);
+  }
   var exBadge = '<span class="badge-ex">exemple à remplacer</span>';
   var page = (location.pathname.split("/").pop() || "index.html");
 
@@ -140,6 +156,7 @@
     Array.prototype.forEach.call(els, function (el) {
       var key = el.getAttribute("data-embed"), link = el.getAttribute("data-link"), label = el.getAttribute("data-label") || "Afficher";
       var src = S[key], url = S[link] || src;
+      if (key === "form_embed_url") { src = prefill(src); url = prefill(url); showPick(el); }
       if (!src && !url) { el.innerHTML = "<p>" + todo(LABELS[key] || key, key) + "</p><p><small>Une fois ce lien ajouté dans data.js, le service s'affichera ici.</small></p>"; return; }
       var html = "";
       if (src) html += '<p>Pour protéger votre vie privée, ce service Google ne se charge qu\'après votre clic.</p><button class="btn" type="button">' + esc(label) + "</button> ";
@@ -156,8 +173,8 @@
     return F.map(function (f) {
       return '<div class="tarif-bloc" id="tarif-' + f.id + '" style="margin-bottom:44px"><h2>' + esc(f.titre) + "</h2>" +
         '<div class="meta" style="margin-bottom:14px"><span class="badge">' + esc(f.format) + '</span><span class="badge">' + esc(f.duree) + "</span></div>" +
-        tarifTable(f) + (f.prix_note ? "<p><small>" + esc(f.prix_note) + "</small></p>" : "") +
-        '<div class="btns"><a class="btn ghost" href="formations.html#' + f.id + '">Voir le programme</a><a class="btn" href="inscription.html">Je m\'inscris</a><a class="btn ghost" href="#ask">Poser ma question</a></div></div>';
+        tarifTable(f, true) + (f.prix_note ? "<p><small>" + esc(f.prix_note) + "</small></p>" : "") +
+        '<div class="btns"><a class="btn ghost" href="formations.html#' + f.id + '">Voir le programme</a><a class="btn" href="' + (f.tarifs && f.tarifs.length === 1 ? inscLink(f, 0) : 'inscription.html') + '">Je m\'inscris</a><a class="btn ghost" href="#ask">Poser ma question</a></div></div>';
     }).join("");
   }
   function mount() {
