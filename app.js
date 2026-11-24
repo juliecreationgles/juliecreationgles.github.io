@@ -266,6 +266,7 @@ h.remove(); gone++;
         '<button class="btn" type="submit">Envoyer ma question</button><div id="ask-msg" role="status"></div></form></div>';
       var ct = document.getElementById("contact");
       if (ct) ct.parentNode.insertBefore(s, ct); else foot.parentNode.insertBefore(s, foot);
+      if (ct && location.hash === "#contact") setTimeout(function () { ct.scrollIntoView(); }, 0);
       var form = s.querySelector("#askf"), msg = s.querySelector("#ask-msg");
       form.addEventListener("submit", function (ev) {
         ev.preventDefault();
