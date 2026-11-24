@@ -108,9 +108,7 @@ window.FORMATIONS = [
         matin: ["Les démarches et les aides pour la création de votre entreprise", "Le comblage / remplissage", "Apprentissage de quelques décos à réaliser en clientèle", "Démo + entraînement sur soi ou sur capsule"],
         apresmidi: ["Entraînement libre", "Révision de l'examen théorique sous forme de quiz"] },
       { jour: "Jour 5",
-        matin: ["9 h : examen théorique (durée : 1 h)", "10 h : début de l'épreuve pratique sur modèle (durée : 5 h). C'est à vous de trouver votre modèle.", "Votre modèle déjeunera avec vous et devra être disponible jusqu'à 16 h environ.", "Elle devra arriver les ongles nus et sans vernis, même transparent."] },
-      { jour: "Fin de formation",
-        items: ["Remise du certificat", "Mes conseils individuels sur vos tarifs à appliquer après la formation", "La prise de photos", "Code promo Almas de 12 %"] }
+        items: ["9 h : examen théorique (durée : 1 h)", "10 h : début de l'épreuve pratique sur modèle (durée : 5 h). C'est à vous de trouver votre modèle.", "Votre modèle déjeunera avec vous et devra être disponible jusqu'à 16 h environ.", "Elle devra arriver les ongles nus et sans vernis, même transparent.", "Remise du certificat", "Mes conseils individuels sur vos tarifs à appliquer après la formation", "La prise de photos", "Code promo Almas de 12 %"] }
     ],
     moyens: "Alternance de théorie et de pratique (démonstrations, entraînement sur soi, sur capsule et sur modèle). Groupes de 4 élèves maximum.",
     evaluation: "En groupe : examen théorique (1 h) et épreuve pratique sur modèle (5 h) le 5e jour. Remise du certificat en fin de formation.",
