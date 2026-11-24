@@ -194,7 +194,7 @@ window.FORMATIONS = [
   {
     id: "amandes-russes",
     titre: "Formation Amande russe",
-    accroche: "Réaliser de belles amandes russes avec une structure correcte et plusieurs techniques de french reverse, selon les tendances actuelles.",
+    accroche: "Réalisez de belles amandes russes avec une structure impeccable et des french reverse selon les tendances du moment. Une formation à la fois artistique et technique, qui vous fera gagner en précision.",
     format: "Présentiel, en groupe de 4 élèves max",
     duree: "2 jours (7 h par jour)",
     tarifs: [{ label: "En groupe (4 élèves max)", prix: 700, cpf: 1500 }],
