@@ -353,3 +353,26 @@ h.remove(); gone++;
   window.addEventListener("hashchange", ouvrir);
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", function () { setTimeout(ouvrir, 0); }); else setTimeout(ouvrir, 0);
 })();
+
+/* E-mail et téléphone cliquables (pied de page et bloc contact) */
+(function () {
+  function go() {
+    var S = window.SITE || {}, mail = S.email, tel = S.tel;
+    [document.querySelector("footer.site"), document.getElementById("contact")].forEach(function (z) {
+      if (!z) return;
+      var w = document.createTreeWalker(z, NodeFilter.SHOW_TEXT), n, list = [];
+      while ((n = w.nextNode())) {
+        if (n.parentElement.closest("a")) continue;
+        if ((mail && n.nodeValue.indexOf(mail) >= 0) || (tel && n.nodeValue.indexOf(tel) >= 0)) list.push(n);
+      }
+      list.forEach(function (n) {
+        var span = document.createElement("span"), h = n.nodeValue.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+        if (mail) h = h.split(mail).join('<a href="mailto:' + mail + '">' + mail + '</a>');
+        if (tel) h = h.split(tel).join('<a href="tel:' + tel.replace(/\s/g, "") + '">' + tel + '</a>');
+        span.innerHTML = h;
+        n.parentNode.replaceChild(span, n);
+      });
+    });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", function () { setTimeout(go, 0); }); else setTimeout(go, 0);
+})();
