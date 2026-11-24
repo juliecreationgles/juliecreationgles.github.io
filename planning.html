@@ -19,15 +19,52 @@
 </div></div>
 <section>
   <div class="wrap">
-    <div data-render="sessions-all"></div>
-    <div class="notice"><strong>Comment réserver ?</strong> Choisissez la session, puis remplissez le <a href="inscription.html">bulletin d'inscription</a> en indiquant les dates souhaitées. La réservation n'est définitive qu'après validation de votre dossier selon les conditions indiquées dans les <a href="cgv.html">conditions générales de vente</a>.</div>
+    <div id="pl-ouvertes"></div>
+    <div class="notice"><strong>Comment réserver ?</strong> Choisissez la session, puis remplissez le <a href="inscription.html">bulletin d'inscription</a> en choisissant vos dates directement dans le bulletin. La réservation n'est définitive qu'après validation de votre dossier selon les conditions indiquées dans les <a href="cgv.html">conditions générales de vente</a>.</div>
     <h2 style="margin-top:50px">Planning détaillé</h2>
-    <div class="embed" data-embed="planning_sheet_url" data-label="Afficher le planning détaillé"></div>
+    <div id="pl-detail"></div>
   </div>
 </section>
 </main>
 <div id="site-footer"></div>
 <script src="data.js"></script>
 <script src="app.js"></script>
+<script>
+(function(){
+/* Planning en direct : lu dans le tableau Google « Planning des formations » (dates et places, jamais de noms) */
+var API='https://script.google.com/macros/s/AKfycbyiNTZOGNoKfiyXGX26QxXYZPz4AA-ezGp5V3GwFZg-AvOVi8LXBlTx6GZc2Rg87Ft-/exec';
+var F=[
+ {t:'Formation de base',o:[['bases:0','En groupe de 4 élèves · 5 jours'],['bases:1','En duo · 3 jours'],['bases:2','En privé · 3 jours']]},
+ {t:'Perfectionnement multitechnique',o:[['perf:0','En groupe de 4 élèves · 2 jours']]},
+ {t:'Coaching privé ou en duo',o:[['coach:0','En privé · 1 jour'],['coach:1','En privé · 2 jours'],['coach:2','En privé · 3 jours'],['coach:3','En duo · 1 jour'],['coach:4','En duo · 2 jours'],['coach:5','En duo · 3 jours']]},
+ {t:'Formation Popit (groupe de 4 élèves max)',o:[['popit:2','Les 2 jours (14 h)'],['popit:0','Jour 1 uniquement (7 h)'],['popit:1','Jour 2 uniquement (7 h)']]},
+ {t:'Amande russe',o:[['amandes:0','En groupe de 4 élèves · 2 jours']]}
+];
+var D=new Intl.DateTimeFormat('fr-FR',{weekday:'short',day:'numeric',month:'short',year:'numeric',timeZone:'UTC'});
+function d(s){return D.format(new Date(s+'T00:00:00Z'));}
+function per(s){return s.debut===s.fin?d(s.debut):'Du '+d(s.debut)+' au '+d(s.fin);}
+document.head.insertAdjacentHTML('beforeend','<style>.pl-f{margin:0 0 30px}.pl-f h3{margin-bottom:10px}.pl-f details{background:#fff;border:1px solid #eadfcd;border-radius:14px;margin:0 0 10px;padding:12px 18px}.pl-f summary{cursor:pointer;font-weight:500}.pl-f summary span{color:var(--gris);font-weight:400}.pl-chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}.pl-chips span{background:var(--creme);border:1px solid #eadfcd;border-radius:999px;padding:5px 12px;font-size:.9rem}.pl-chips span.deja{border-color:var(--or-fonce)}</style>');
+var o=document.getElementById('pl-ouvertes'),det=document.getElementById('pl-detail');
+if(o)o.innerHTML='<p class="hint">Chargement du planning…</p>';
+fetch(API,{cache:'no-store'}).then(function(r){return r.json();}).then(function(j){
+  var c=j.creneaux||{},rows=[];
+  F.forEach(function(f){f.o.forEach(function(x){if(x[0]==='popit:0'||x[0]==='popit:1')return;(c[x[0]]||[]).forEach(function(s){if(s.deja&&s.places>0)rows.push({f:f.t,o:x[1],s:s});});});});
+  rows.sort(function(a,b){return a.s.debut<b.s.debut?-1:1;});
+  if(o)o.innerHTML=rows.length?'<div class="tablewrap"><table class="plan"><thead><tr><th>Formation</th><th>Dates</th><th>Places</th><th></th></tr></thead><tbody>'+rows.map(function(r){
+    var b=r.s.places<=1?'<span class="badge peu">Dernière place</span>':'<span class="badge ok">'+r.s.places+' places restantes</span>';
+    return '<tr><td><strong>'+r.f+'</strong><br><small>'+r.o+'</small></td><td>'+per(r.s)+'</td><td>'+b+'</td><td><a class="btn ghost" style="padding:8px 18px" href="inscription.html">Réserver</a></td></tr>';
+  }).join('')+'</tbody></table></div>':'<div class="notice"><strong>Aucune session de groupe en cours de remplissage pour le moment.</strong> Toutes les dates disponibles sont dans le planning détaillé ci-dessous.</div>';
+  if(det)det.innerHTML='<p class="lead" style="margin-bottom:24px">Toutes les dates encore possibles, formation par formation. Vous choisirez la vôtre dans le <a href="inscription.html">bulletin d\'inscription</a> ; elle est bloquée pour vous dès l\'envoi.</p>'+F.map(function(f){
+    return '<div class="pl-f"><h3>'+f.t+'</h3>'+f.o.map(function(x){
+      var l=c[x[0]]||[];
+      return '<details><summary>'+x[1]+' <span>· '+(l.length?l.length+' date'+(l.length>1?'s':'')+' possible'+(l.length>1?'s':''):'aucune date pour le moment')+'</span></summary>'+(l.length?'<div class="pl-chips">'+l.map(function(s){return '<span'+(s.deja?' class="deja" title="Session déjà commencée"':'')+'>'+per(s)+(s.deja?' · '+s.places+' pl.':'')+'</span>';}).join('')+'</div>':'')+'</details>';
+    }).join('')+'</div>';
+  }).join('');
+}).catch(function(){
+  if(o)o.innerHTML='<div class="notice">Le planning n\'a pas pu être chargé. <a href="rendez-vous.html">Contactez-moi</a> pour connaître les dates disponibles.</div>';
+  if(det)det.innerHTML='';
+});
+})();
+</script>
 </body>
 </html>
