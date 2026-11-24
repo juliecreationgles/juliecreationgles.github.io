@@ -249,7 +249,7 @@ h.remove(); gone++;
         '#ask .ok{background:#eef6ea;color:#2f5a22}#ask .ko{background:#fbeceb;color:#8a2a22}' +
         '</style>' +
         '<div class="box"><span class="eyebrow">Une question ?</span><h2>Poser ma question</h2>' +
-        '<p class="lead">Regardez d’abord sur le site : formations, tarifs, financement, planning. Si vous ne trouvez pas la réponse (ou si vous préférez ne pas chercher), écrivez-la ici : Julie la reçoit directement par e-mail et vous répond ' + esc(d) + '.</p>' +
+        '<p class="lead">Une hésitation, une question ? Je suis là pour vous aider : écrivez-moi ici et je vous réponds ' + esc(d) + '.</p>' +
         '<form id="askf" novalidate><div class="row"><div><label for="ask-p">Prénom</label><input id="ask-p" autocomplete="given-name"></div>' +
         '<div><label for="ask-m">Votre e-mail *</label><input id="ask-m" type="email" autocomplete="email" required></div></div>' +
         '<label for="ask-q">Votre question *</label><textarea id="ask-q" required></textarea>' +
@@ -269,7 +269,7 @@ h.remove(); gone++;
         var btn = form.querySelector("button"); btn.disabled = true;
         fetch(FORM, { method: "POST", mode: "no-cors", body: P }).then(function () {
           form.reset(); msg.className = "msg ok";
-          msg.textContent = "Merci, votre question est bien envoyée ! Julie vous répond " + d + ".";
+          msg.textContent = "Merci, votre question est bien envoyée ! Je vous réponds " + d + ".";
           btn.disabled = false;
         }).catch(function () {
           msg.className = "msg ko"; msg.textContent = "Oups, l’envoi a échoué. Réessayez dans un instant."; btn.disabled = false;
