@@ -22,9 +22,9 @@
     <div class="notice"><strong>Avant de vous inscrire</strong>
       <ul>
         <li>Consultez le <a href="planning.html">planning</a> et le <a href="formations.html">programme</a> de la formation choisie (prérequis, tarif, financement).</li>
-        <li>Vous avez un doute sur le niveau ou le financement ? <a href="rendez-vous.html">Réservez un rendez-vous téléphonique</a> avant de vous inscrire.</li>
         <li>En envoyant le bulletin, vous reconnaissez avoir pris connaissance des <a href="cgv.html">conditions générales de vente</a> et de la <a href="confidentialite.html">politique de confidentialité</a>.</li>
         <li><strong>Une fois le formulaire rempli, n’oubliez pas de cliquer sur « Envoyer » tout en bas.</strong> Sans cela, votre bulletin ne me parvient pas.</li>
+        <li>Vous avez un doute ou une question avant de réserver ? <a href="rendez-vous.html">Prenez un rendez-vous téléphonique</a>.</li>
       </ul>
     </div>
     <style>
@@ -89,14 +89,14 @@ function opt(type,name,i,t,p,n,req){return '<label class="opt"><input type="'+ty
 function inp(n,l,type,extra){return '<label class="f">'+l+' <span class="req">*</span><input type="'+(type||'text')+'" name="'+n+'" required'+(extra||'')+'></label>';}
 var h='';
 h+='<fieldset><legend>Vos coordonnées</legend><div class="grid">'+inp('prenom','Prénom','text',' autocomplete="given-name"')+inp('nom','Nom','text',' autocomplete="family-name"')+'</div><div class="grid">'+inp('tel','Numéro de téléphone (WhatsApp)','tel',' autocomplete="tel"')+inp('mail','Adresse e-mail','email',' autocomplete="email"')+'</div>'+inp('adr','Adresse postale','text',' autocomplete="street-address"')+'<div class="grid">'+inp('ville','Ville et code postal','text',' autocomplete="postal-code"')+inp('naiss','Date de naissance','date','')+'</div></fieldset>';
-h+='<fieldset><legend>Formation(s) envisagée(s)</legend><p class="hint">Cochez la ou les formations qui vous intéressent (vous pouvez en choisir plusieurs si vous hésitez). Pour un financement CPF, une majoration s\'applique : elle correspond aux frais de gestion administrative de l\'organisme partenaire.</p>';
+h+='<fieldset><legend>Choix de la formation</legend><p class="hint">Pour un financement CPF, une majoration s\'applique : elle correspond aux frais de gestion administrative de l\'organisme partenaire.</p>';
 G.forEach(function(g){h+='<h3>'+g.t+'</h3>';g.o.forEach(function(o,i){h+=opt('checkbox',g.k,i,o[1],o[2],o[3]);});});
 h+='</fieldset>';
 h+='<fieldset><legend>Financement</legend><h3>Mode de financement <span class="req">*</span></h3>';
 FIN.forEach(function(o,i){h+=opt('radio','fin',i,o[1],'',o[2],i===0);});
 h+='<p class="hint">Les dates de votre formation seront fixées ensemble après réception de votre bulletin.</p></fieldset>';
 h+='<fieldset><legend>Accueil</legend><h3>Situation de handicap <span class="req">*</span></h3><p class="hint">Afin de vous accueillir dans les meilleures conditions, souhaitez-vous m\'indiquer si vous êtes en situation de handicap nécessitant un aménagement particulier ?</p>'+opt('radio','handi',1,'Non','','',true)+opt('radio','handi',0,'Oui','','')+'<label class="f" data-for="handi" hidden><input type="text" name="handi_o" placeholder="Précisez l\'aménagement souhaité"></label></fieldset>';
-h+='<input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><p id="jf-err" role="alert"></p><button class="btn" type="submit">Envoyer mon bulletin</button><p class="hint" style="margin-top:12px">Il ne s\'agit pas d\'une inscription définitive : après réception, je vous contacte sur WhatsApp pour finaliser votre projet.</p>';
+h+='<input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><p id="jf-err" role="alert"></p><button class="btn" type="submit">Envoyer mon bulletin</button>';
 form.innerHTML=h;
 form.addEventListener('change',function(){var r=form.querySelector('input[name="handi"]:checked');form.querySelector('[data-for="handi"]').hidden=!(r&&r.value==='0');});
 function done(){form.innerHTML='<div class="ok"><h2>Merci, votre bulletin est bien envoyé !</h2><p>Je reviendrai vers vous sur WhatsApp dans les meilleurs délais pour vous proposer les dates disponibles et répondre à vos questions.</p><p>Au plaisir de vous accompagner prochainement,<br><strong>Julie</strong></p></div>';form.scrollIntoView({behavior:'smooth',block:'start'});}
