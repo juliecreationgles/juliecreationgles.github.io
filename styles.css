@@ -175,3 +175,11 @@ footer.site,footer.site a{color:#EAD9CB}
 
 /* Jour 1, Jour 2... : titres plus visibles */
 .jour h4{font-size:1.5rem;font-weight:600;color:var(--or-fonce);text-decoration:underline;text-decoration-color:var(--or);text-decoration-thickness:2px;text-underline-offset:7px;margin-bottom:.4rem}
+
+
+/* PHOTO ACCUEIL SUR TELEPHONE : grande photo, sans l'étiquette par-dessus */
+@media (max-width: 860px) {
+  .hero-visual { width: 100%; max-width: 420px; aspect-ratio: 4 / 5; margin: 8px auto 0; }
+  .hero-visual img { object-position: 50% 15%; }
+  .hero-visual .tag { display: none; }
+}
