@@ -197,3 +197,6 @@ footer.site,footer.site a{color:#EAD9CB}
 [data-render="tarifs-all"] .tarif-bloc .tablewrap{margin-bottom:20px}
 [data-render="tarifs-all"] .tarif-bloc p{margin:0 0 24px}
 [data-render="tarifs-all"] .tarif-bloc .btns{margin-top:24px}
+
+/* Lien « Contact » : le titre reste visible sous le menu fixe */
+#contact{scroll-margin-top:40px}
