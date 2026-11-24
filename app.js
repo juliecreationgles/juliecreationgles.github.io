@@ -264,7 +264,8 @@ h.remove(); gone++;
         '<label for="ask-q">Votre question *</label><textarea id="ask-q" required></textarea>' +
         '<div class="hp" aria-hidden="true"><label>Ne pas remplir <input id="ask-h" tabindex="-1" autocomplete="off"></label></div>' +
         '<button class="btn" type="submit">Envoyer ma question</button><div id="ask-msg" role="status"></div></form></div>';
-      foot.parentNode.insertBefore(s, foot);
+      var ct = document.getElementById("contact");
+      if (ct) ct.parentNode.insertBefore(s, ct); else foot.parentNode.insertBefore(s, foot);
       var form = s.querySelector("#askf"), msg = s.querySelector("#ask-msg");
       form.addEventListener("submit", function (ev) {
         ev.preventDefault();
