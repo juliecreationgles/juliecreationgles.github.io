@@ -129,7 +129,7 @@ window.FORMATIONS = [
       { label: "Les 2 jours : Jour 1 + Jour 2 (14 h)", prix: 590, cpf: 1500 }
     ],
     prix_note: "Formation en groupe de 4 élèves max. Le programme de chaque journée est déjà défini et ne peut pas être modifié si vous choisissez une seule journée. Financement CPF possible uniquement pour la formule 2 jours (pas pour une seule journée).",
-    public: "Prothésistes ongulaires en exercice qui souhaitent consolider leur technique et se perfectionner.",
+    public: "Prothésistes ongulaires en exercice qui souhaitent apprendre ou consolider leur technique Popit et se perfectionner.",
     prerequis: "Niveau base recommandé.",
     objectifs: [
       "Choisir le Popit adapté à chaque type d'ongle",
