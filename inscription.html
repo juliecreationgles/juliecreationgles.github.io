@@ -99,7 +99,7 @@ h+='<fieldset><legend>Accueil</legend><h3>Situation de handicap <span class="req
 h+='<input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><p id="jf-err" role="alert"></p><button class="btn" type="submit">Envoyer mon bulletin</button>';
 form.innerHTML=h;
 form.addEventListener('change',function(){var r=form.querySelector('input[name="handi"]:checked');form.querySelector('[data-for="handi"]').hidden=!(r&&r.value==='0');});
-function done(){form.innerHTML='<div class="ok"><h2>Merci, votre bulletin est bien envoyé !</h2><p>Je reviendrai vers vous sur WhatsApp dans les meilleurs délais pour vous proposer les dates disponibles et répondre à vos questions.</p><p>Au plaisir de vous accompagner prochainement,<br><strong>Julie</strong></p></div>';form.scrollIntoView({behavior:'smooth',block:'start'});}
+function done(){form.innerHTML='<div class="ok"><h2>Merci, votre bulletin est bien envoyé !</h2><p>Je reviendrai vers vous dans les meilleurs délais pour vous proposer les dates disponibles et répondre à vos questions.</p><p>Au plaisir de vous accompagner prochainement,<br><strong>Julie</strong></p></div>';form.scrollIntoView({behavior:'smooth',block:'start'});}
 form.addEventListener('submit',function(ev){
 ev.preventDefault();var err=document.getElementById('jf-err');err.textContent='';
 if(form.elements.website.value){done();return;}
