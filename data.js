@@ -16,7 +16,7 @@ window.SITE = {
   adresse: "55 Av. des Puisatiers",
   cp: "13580",
   email: "formation.juliecreationgles@gmail.com",
-  tel: "06 80 22 50 08",
+  tel: "",
   horaires: "Sur rendez-vous, 9h-17h",
 
   /* ---------- LÉGAL (mentions légales) ---------- */
