@@ -56,7 +56,7 @@ function price(t){return fin==='cpf'?t.cpf:t.prix;}
 function opt(type,name,val,checked,t,p,n,dis){return '<label class="opt"><input type="'+type+'" name="'+name+'" value="'+val+'"'+(checked?' checked':'')+(dis?' disabled':'')+'><span><b>'+t+'</b>'+(p?'<em>'+p+'</em>':'')+(n?'<small>'+n+'</small>':'')+'</span></label>';}
 function render(){
 var h='<fieldset><legend>1. Votre financement</legend>'+
-opt('radio','fin','auto',fin==='auto','Autofinancement','','Virement, Wero, PayPal « entre proches », espèces ou CB. Pas de chèques.')+
+opt('radio','fin','auto',fin==='auto','Autofinancement','','Virement, Wero, carte bancaire ou espèces. Pas de chèque.')+
 opt('radio','fin','cpf',fin==='cpf','CPF','','Tarif CPF de la formation.')+'</fieldset>';
 h+='<fieldset><legend>2. Vos formations</legend>';
 F.forEach(function(f){h+='<h3>'+f.titre+'</h3>';(f.tarifs||[]).forEach(function(t,i){var k=f.id+'|'+i,p=price(t),dis=(p==null);h+=opt('checkbox','f',k,!!sel[k]&&!dis,t.label,dis?'Non disponible en CPF':eur(p),'',dis);});});
@@ -67,7 +67,7 @@ h+='<div class="res"><h2>Votre résultat</h2>';
 if(!n){h+='<p>Sélectionnez au moins une formation pour voir votre total.</p>';}
 else{
 h+='<table>'+lines+'</table><div class="tot"><span>Total</span><span>'+eur(total)+'</span></div>';
-if(fin==='cpf')h+='<div class="note">Dans le cadre d\'un financement via le CPF, une majoration s\'applique : elle correspond aux frais supplémentaires liés à la gestion administrative par l\'organisme partenaire. Si vous n\'êtes pas inscrit(e) chez France Travail, un reste à charge de 150 € s\'applique (déduit du tarif CPF). L\'identité numérique La Poste est obligatoire pour toute inscription avec le CPF.</div>';
+if(fin==='cpf')h+='<div class="note">Dans le cadre d\'un financement via le CPF, une majoration s\'applique : elle correspond aux frais supplémentaires liés à la gestion administrative par l\'organisme partenaire. Un reste à charge de 150 € s\'applique (déduit du tarif CPF), sauf pour les demandeurs d\'emploi et si votre employeur complète le financement. Une identité numérique certifiée (L\'Identité Numérique La Poste ou France Identité) est obligatoire pour toute inscription avec le CPF.</div>';
 h+='<div class="btns"><a class="btn" href="inscription.html">Faire ma préinscription</a><a class="btn ghost" href="rendez-vous.html">En parler au téléphone</a></div>';
 }
 h+='</div>';
