@@ -158,7 +158,7 @@ window.FORMATIONS = [
   },
   {
     id: "perfectionnement",
-    titre: "Perfectionnement en groupe",
+    titre: "Perfectionnement multitechnique en groupe",
     accroche: "Deux journées au programme bien défini pour revoir toutes les méthodes de rallongement (Popit plein, Popit extension, chablon et capsule), maîtriser la méthode sans limage et soigner la préparation des cuticules. L'objectif : perfectionner votre technique et gagner en qualité de finition.",
     format: "Présentiel, en groupe de 4 élèves max",
     duree: "2 jours (7 h par jour)",
