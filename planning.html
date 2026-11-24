@@ -19,10 +19,12 @@
 </div></div>
 <section>
   <div class="wrap">
+    <h2>Dates disponibles par formation</h2>
+    <div id="pl-detail"></div>
+    <h2 style="margin-top:50px">Sessions de groupe déjà commencées</h2>
+    <p>Des élèves sont déjà inscrites à ces sessions et il reste des places : vous pouvez les rejoindre aux mêmes dates.</p>
     <div id="pl-ouvertes"></div>
     <div class="notice"><strong>Comment réserver ?</strong> Choisissez la session, puis remplissez le <a href="inscription.html">bulletin d'inscription</a> en choisissant vos dates directement dans le bulletin. La réservation n'est définitive qu'après validation de votre dossier selon les conditions indiquées dans les <a href="cgv.html">conditions générales de vente</a>.</div>
-    <h2 style="margin-top:50px">Planning détaillé</h2>
-    <div id="pl-detail"></div>
   </div>
 </section>
 </main>
@@ -53,7 +55,7 @@ fetch(API,{cache:'no-store'}).then(function(r){return r.json();}).then(function(
   if(o)o.innerHTML=rows.length?'<div class="tablewrap"><table class="plan"><thead><tr><th>Formation</th><th>Dates</th><th>Places</th><th></th></tr></thead><tbody>'+rows.map(function(r){
     var b=r.s.places<=1?'<span class="badge peu">Dernière place</span>':'<span class="badge ok">'+r.s.places+' places restantes</span>';
     return '<tr><td><strong>'+r.f+'</strong><br><small>'+r.o+'</small></td><td>'+per(r.s)+'</td><td>'+b+'</td><td><a class="btn ghost" style="padding:8px 18px" href="inscription.html">Réserver</a></td></tr>';
-  }).join('')+'</tbody></table></div>':'<div class="notice"><strong>Aucune session de groupe en cours de remplissage pour le moment.</strong> Toutes les dates disponibles sont dans le planning détaillé ci-dessous.</div>';
+  }).join('')+'</tbody></table></div>':'<div class="notice"><strong>Aucune session de groupe en cours de remplissage pour le moment.</strong> Toutes les dates disponibles sont dans la liste ci-dessus.</div>';
   if(det)det.innerHTML='<p class="lead" style="margin-bottom:24px">Toutes les dates encore possibles, formation par formation. Vous choisirez la vôtre dans le <a href="inscription.html">bulletin d\'inscription</a> ; elle est bloquée pour vous dès l\'envoi.</p>'+F.map(function(f){
     return '<div class="pl-f"><h3>'+f.t+'</h3>'+f.o.map(function(x){
       var l=c[x[0]]||[];
