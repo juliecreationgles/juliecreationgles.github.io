@@ -58,7 +58,7 @@
   /* ---------- en-tête ---------- */
   function header() {
     var items = [
-      ["index.html", "Accueil"], ["formations.html", "Formations"], ["planning.html", "Planning"], ["tarifs.html", "Tarifs"],
+      ["index.html", "Accueil"], ["formations.html", "Formations"], ["planning.html", "Planning"], ["tarifs.html", "Tarifs"], ["simulateur-de-devis.html", "Devis"],
       ["rendez-vous.html", "Rendez-vous téléphonique"], ["index.html#contact", "Contact"]
     ];
     var li = items.map(function (it) {
