@@ -16,7 +16,7 @@ window.SITE = {
   adresse: "55 Av. des Puisatiers",
   cp: "13580",
   email: "formation.juliecreationgles@gmail.com",
-  tel: "",
+  tel: "06 80 22 50 08",
   horaires: "Sur rendez-vous, 9h-17h",
 
   /* ---------- LÉGAL (mentions légales) ---------- */
@@ -27,7 +27,7 @@ window.SITE = {
   tva: "TVA non applicable, article 293 B du Code général des impôts",   // confirmé : pas de TVA
   assurance: "",                          // ex. "RC Pro - nom de l'assureur, n° de contrat" (facultatif)
   directeur_publication: "Julie Zobel",
-  hebergeur: "Site hébergé par GitHub Pages — GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis",
+  hebergeur: "Site hébergé par GitHub Pages — GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis — Tél. : +1 877 448 4820",
   qualiopi: false,                        // passer à true SEULEMENT si elle est certifiée Qualiopi
   qualiopi_num: "",
   date_maj_legal: "23/11/2026",
