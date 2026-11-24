@@ -80,7 +80,7 @@
     var q = S.qualiopi ? '<p><strong>Qualiopi</strong> — certification qualité délivrée au titre de la catégorie : actions de formation. N° ' + v("qualiopi_num") + "</p>" : "";
     return '<footer class="site"><div class="wrap"><div class="fgrid">' +
       "<div><h4>" + esc(S.nom || "") + "</h4><p>" + esc(S.baseline || "") + "</p>" + q +
-      "<p>SIRET " + v("siret") + "<br>N° de déclaration d'activité " + v("nda") + "</p></div>" +
+      "<p>SIRET " + v("siret") + "</p></div>" +
       "<div><h4>Contact</h4><p>" + v("adresse") + ", " + v("cp") + " " + v("ville") + "<br>" + v("email") + (S.tel ? "<br>" + esc(S.tel) : "") + "<br>" + v("horaires") + "</p></div>" +
       '<div><h4>Informations</h4><ul><li><a href="formations.html">Formations & programmes</a></li><li><a href="planning.html">Planning</a></li><li><a href="tarifs.html">Tarifs</a></li><li><a href="inscription.html">Inscription</a></li><li><a href="accessibilite.html">Accessibilité & handicap</a></li>' + soc + "</ul></div>" +
       '<div><h4>Informations légales</h4><ul><li><a href="mentions-legales.html">Mentions légales</a></li><li><a href="cgv.html">Conditions générales de vente</a></li><li><a href="confidentialite.html">Politique de confidentialité</a></li></ul>' +
