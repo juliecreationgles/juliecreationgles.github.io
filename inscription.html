@@ -61,13 +61,13 @@ var G=[
 {k:'bases',t:'Formation de base',o:[
 ['En groupe -- 5 jours 1190€ (CPF 2500€)','En groupe de 4 élèves · 5 jours','1 190 € · CPF 2 500 €',''],
 ['En duo -- 3 jours 1190€/élèves  (CPF 2500€) (Attention c\'est à vous de trouver votre duo)','En duo · 3 jours','1 190 € par élève · CPF 2 500 €','C\'est à vous de trouver votre duo. Programme identique, concentré sur 3 jours (sans le jour d\'examen).'],
-['En individuel -- 3 jours 1610€ (CPF 3000€)','En individuel · 3 jours','1 610 € · CPF 3 000 €','Programme identique, concentré sur 3 jours (sans le jour d\'examen).']]},
+['En individuel -- 3 jours 1610€ (CPF 3000€)','En privé · 3 jours','1 610 € · CPF 3 000 €','Programme identique, concentré sur 3 jours (sans le jour d\'examen).']]},
 {k:'perf',t:'Perfectionnement multitechnique',o:[
 ['En groupe -- 2jours 550€ (CPF 1500€)','En groupe de 4 élèves · 2 jours','550 € · CPF 1 500 €','']]},
 {k:'coach',t:'Coaching privé ou en duo',o:[
-['En individuel -- 1 jour 700€ (CPF 1500€)','En individuel · 1 jour','700 € · CPF 1 500 €',''],
-['En individuel -- 2 jours 1190€ (CPF 2500€)','En individuel · 2 jours','1 190 € · CPF 2 500 €',''],
-['En individuel -- 3 jours 1610€ (CPF 3000€)','En individuel · 3 jours','1 610 € · CPF 3 000 €',''],
+['En individuel -- 1 jour 700€ (CPF 1500€)','En privé · 1 jour','700 € · CPF 1 500 €',''],
+['En individuel -- 2 jours 1190€ (CPF 2500€)','En privé · 2 jours','1 190 € · CPF 2 500 €',''],
+['En individuel -- 3 jours 1610€ (CPF 3000€)','En privé · 3 jours','1 610 € · CPF 3 000 €',''],
 ['En duo -- 1 jour 525€ (CPF 1500€)','En duo · 1 jour','525 € par élève · CPF 1 500 €','C\'est à vous de trouver votre duo.'],
 ['En duo -- 2 jours 875€ (CPF 2500€)','En duo · 2 jours','875 € par élève · CPF 2 500 €','C\'est à vous de trouver votre duo.'],
 ['En duo -- 3 jours 1090€ (CPF 3000€)','En duo · 3 jours','1 090 € par élève · CPF 3 000 €','C\'est à vous de trouver votre duo.']]},
@@ -80,11 +80,11 @@ var G=[
 ];
 var FIN=[
 ['Espèce','Espèces',''],
-['Virement avec RIB ou wero','Virement ou Wero',''],
-['CPF (150€ de reste à charge si vous n\'êtes pas inscrit(e) chez FranceTravail, déduit du tarif de la formation)','CPF','150 € de reste à charge si vous n\'êtes pas inscrit(e) chez France Travail, déduits du tarif de la formation.']];
+['Virement, Wero ou carte bancaire','Virement, Wero ou carte bancaire',''],
+['CPF (150€ de reste à charge si vous n\'êtes pas inscrit(e) chez FranceTravail, déduit du tarif de la formation)','CPF','150 € de reste à charge, déduits du tarif de la formation, sauf pour les demandeurs d\'emploi et si votre employeur complète le financement. Une identité numérique certifiée (L\'Identité Numérique La Poste ou France Identité) est obligatoire.']];
 var DATE_AUTO='A definir';
 var HANDI=['Oui    (précisez dans "Autre")','non'];
-var IMG=["Oui, j'accepte d'apparaître (visage reconnaissable) sur les photos et vidéos publiées sur Instagram, Facebook et ce site, et d'y être identifiée","Oui, mais sans être identifiée (pas de nom ni de compte mentionné)","Non"];
+var IMG=["Oui, j'accepte d'apparaître (visage reconnaissable) sur les photos et vidéos publiées sur Instagram, Facebook et ce site, avec mention de mon nom ou de mon compte","Oui, mais sans mention de mon nom ni de mon compte","Non"];
 var form=document.getElementById('jf');
 function opt(type,name,i,t,p,n,req){return '<label class="opt"><input type="'+type+'" name="'+name+'" value="'+i+'"'+(req?' required':'')+'><span><b>'+t+'</b>'+(p?'<em>'+p+'</em>':'')+(n?'<small>'+n+'</small>':'')+'</span></label>';}
 function inp(n,l,type,extra){return '<label class="f">'+l+' <span class="req">*</span><input type="'+(type||'text')+'" name="'+n+'" required'+(extra||'')+'></label>';}
