@@ -124,7 +124,7 @@ function rendreDates(){
       return head+'<div class="jf-dl">'+l.map(function(s){
         var per=s.debut===s.fin?jfd(s.debut):'Du '+jfd(s.debut)+' au '+jfd(s.fin);
         var p=s.deja?(s.places>1?s.places+' places restantes':'Dernière place'):'';
-        var note=s.deja?'Session déjà commencée : vous rejoignez d\'autres élèves sur ces dates.':'';
+        var note='';
         return opt('radio',n,s.debut,per,p,note,false);
       }).join('')+'</div>';
     }).join('');
