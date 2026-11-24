@@ -136,7 +136,8 @@ window.FORMATIONS = [
     objectifs: [
       "Choisir le Popit adapté à chaque type d'ongle",
       "Réaliser une pose complète et un remplissage au Popit plein",
-      "Réaliser une extension Popit, en méthode classique et pour ongles courts"
+      "Réaliser une extension Popit, en méthode classique et pour ongles courts",
+      "Maîtriser la méthode sans limage"
     ],
     programme: [
       { jour: "Jour 1",
