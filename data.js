@@ -158,7 +158,7 @@ window.FORMATIONS = [
   {
     id: "perfectionnement",
     titre: "Perfectionnement en groupe",
-    accroche: "Deux journées au programme bien défini pour revoir toutes les méthodes de rallongement : Popit plein, Popit extension, chablon et capsule.",
+    accroche: "Deux journées au programme bien défini pour revoir toutes les méthodes de rallongement (Popit plein, Popit extension, chablon et capsule), maîtriser la méthode sans limage et soigner la préparation des cuticules. L'objectif : perfectionner votre technique et gagner en qualité de finition.",
     format: "Présentiel, en groupe de 4 élèves max",
     duree: "2 jours (7 h par jour)",
     tarifs: [
@@ -170,6 +170,8 @@ window.FORMATIONS = [
     objectifs: [
       "Identifier et corriger vos points faibles",
       "Revoir toutes les méthodes de rallongement : Popit plein, Popit extension, chablon, capsule",
+      "Maîtriser la méthode sans limage",
+      "Soigner la préparation des cuticules",
       "Gagner en précision et en qualité de finition"
     ],
     programme: [
