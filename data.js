@@ -123,7 +123,7 @@ window.FORMATIONS = [
   {
     id: "popit",
     titre: "Formation Popit",
-    accroche: "Maîtrisez le Popit plein et le Popit extension, en petit groupe. Au choix : uniquement le Jour 1, uniquement le Jour 2, ou les 2 jours.",
+    accroche: "Maîtrisez le Popit plein, le Popit extension et la méthode sans limage, en petit groupe. Au choix : uniquement le Jour 1, uniquement le Jour 2, ou les 2 jours.",
     format: "Présentiel, en groupe de 4 élèves max",
     duree: "1 ou 2 jours (7 h par jour)",
     tarifs: [
