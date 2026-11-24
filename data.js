@@ -85,9 +85,9 @@ window.FORMATIONS = [
     format: "Présentiel",
     duree: "5 jours en groupe, 3 jours en duo ou en privé (7 h par jour : de 9 h à 16 h 30, avec 30 min de pause déjeuner)",
     tarifs: [
-      { label: "En groupe de 4 élèves max (5 jours)", prix: 1190, cpf: true, form: "En groupe -- 5 jours 1190€ (CPF 2500€)" },
-      { label: "En duo (3 jours) — par élève", prix: 1190, cpf: true, form: "En duo -- 3 jours 1190€/élèves  (CPF 2500€) (Attention c'est à vous de trouver votre duo)" },
-      { label: "En privé (3 jours)", prix: 1610, cpf: true, form: "En individuel -- 3 jours 1610€ (CPF 3000€)" }
+      { label: "En groupe de 4 élèves max (5 jours)", prix: 1190, cpf: true, form: "En groupe -- 5 jours 1190€" },
+      { label: "En duo (3 jours) — par élève", prix: 1190, cpf: true, form: "En duo -- 3 jours 1190€/élèves (Attention c'est à vous de trouver votre duo)" },
+      { label: "En privé (3 jours)", prix: 1610, cpf: true, form: "En individuel -- 3 jours 1610€" }
     ],
     prix_note: "Tarif par élève. En duo et en privé, le programme est identique mais concentré sur 3 jours, sans le jour d'examen. En duo, c'est à vous de trouver votre binôme.",
     public: "Toute personne souhaitant apprendre la prothésie ongulaire, se remettre à niveau ou perfectionner ses techniques selon les tendances actuelles. Ouvert aux personnes débutantes.",
@@ -132,7 +132,7 @@ window.FORMATIONS = [
     tarifs: [
       { label: "Jour 1 uniquement (7 h)", prix: 390, form: "Uniquement le jour 1 (7h) 390€" },
       { label: "Jour 2 uniquement (7 h)", prix: 390, form: "Uniquement le jour 2 (7h) 390€" },
-      { label: "Les 2 jours : Jour 1 + Jour 2 (14 h)", prix: 590, cpf: true, form: "Les deux jours (14h) 590€ (CPF 1500€)" }
+      { label: "Les 2 jours : Jour 1 + Jour 2 (14 h)", prix: 590, cpf: true, form: "Les deux jours (14h) 590€" }
     ],
     prix_note: "Formation en groupe de 4 élèves max. Le programme de chaque journée est déjà défini et ne peut pas être modifié si vous choisissez une seule journée. Financement CPF possible uniquement pour la formule 2 jours (pas pour une seule journée).",
     public: "Prothésistes ongulaires en exercice qui souhaitent apprendre ou consolider leur technique Popit et se perfectionner.",
@@ -168,7 +168,7 @@ window.FORMATIONS = [
     format: "Présentiel, en groupe de 4 élèves max",
     duree: "2 jours (7 h par jour : de 9 h à 16 h 30, avec 30 min de pause déjeuner)",
     tarifs: [
-      { label: "En groupe (2 jours, 4 élèves max)", prix: 550, cpf: true, form: "En groupe -- 2jours 550€ (CPF 1500€)" }
+      { label: "En groupe (2 jours, 4 élèves max)", prix: 550, cpf: true, form: "En groupe -- 2jours 550€" }
     ],
     prix_note: "Tarif par élève.",
     public: "Prothésistes ongulaires en exercice qui souhaitent consolider leur technique et se perfectionner.",
@@ -208,12 +208,12 @@ window.FORMATIONS = [
     format: "Présentiel, en privé ou en duo",
     duree: "1, 2 ou 3 jours au choix (7 h par jour : de 9 h à 16 h 30, avec 30 min de pause déjeuner)",
     tarifs: [
-      { label: "En privé — 1 jour", prix: 700, cpf: true, form: "En individuel -- 1 jour 700€ (CPF 1500€)" },
-      { label: "En privé — 2 jours", prix: 1190, cpf: true, form: "En individuel -- 2 jours 1190€ (CPF 2500€)" },
-      { label: "En privé — 3 jours", prix: 1610, cpf: true, form: "En individuel -- 3 jours 1610€ (CPF 3000€)" },
-      { label: "En duo — 1 jour (par élève)", prix: 525, cpf: true, form: "En duo -- 1 jour 525€ (CPF 1500€)" },
-      { label: "En duo — 2 jours (par élève)", prix: 875, cpf: true, form: "En duo -- 2 jours 875€ (CPF 2500€)" },
-      { label: "En duo — 3 jours (par élève)", prix: 1090, cpf: true, form: "En duo -- 3 jours 1090€ (CPF 3000€)" }
+      { label: "En privé — 1 jour", prix: 700, cpf: true, form: "En individuel -- 1 jour 700€" },
+      { label: "En privé — 2 jours", prix: 1190, cpf: true, form: "En individuel -- 2 jours 1190€" },
+      { label: "En privé — 3 jours", prix: 1610, cpf: true, form: "En individuel -- 3 jours 1610€" },
+      { label: "En duo — 1 jour (par élève)", prix: 525, cpf: true, form: "En duo -- 1 jour 525€" },
+      { label: "En duo — 2 jours (par élève)", prix: 875, cpf: true, form: "En duo -- 2 jours 875€" },
+      { label: "En duo — 3 jours (par élève)", prix: 1090, cpf: true, form: "En duo -- 3 jours 1090€" }
     ],
     prix_note: "En duo, le tarif est par élève et c'est à vous de trouver votre binôme.",
     public: "Prothésistes ongulaires en exercice qui souhaitent consolider leur technique et se perfectionner.",
@@ -242,7 +242,7 @@ window.FORMATIONS = [
     accroche: "Réalisez de belles amandes russes avec une structure impeccable et des french reverse selon les tendances du moment. Une formation à la fois artistique et technique, qui vous fera gagner en précision.",
     format: "Présentiel, en groupe de 4 élèves max",
     duree: "2 jours (7 h par jour : de 9 h à 16 h 30, avec 30 min de pause déjeuner)",
-    tarifs: [{ label: "En groupe (4 élèves max)", prix: 700, cpf: true, form: "En groupe -- 2 jours 700€ (CPF 1500€)" }],
+    tarifs: [{ label: "En groupe (4 élèves max)", prix: 700, cpf: true, form: "En groupe -- 2 jours 700€" }],
     prix_note: "",
     public: "Prothésistes ongulaires en exercice.",
     prerequis: "Formation non accessible aux personnes débutantes : un minimum d'expérience dans le métier est exigé.",
