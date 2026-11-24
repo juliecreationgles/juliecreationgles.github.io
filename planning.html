@@ -35,7 +35,7 @@ var API='https://script.google.com/macros/s/AKfycbyiNTZOGNoKfiyXGX26QxXYZPz4AA-e
 var D=new Intl.DateTimeFormat('fr-FR',{weekday:'short',day:'numeric',month:'short',year:'numeric',timeZone:'UTC'});
 function d(s){return D.format(new Date(s+'T00:00:00Z'));}
 function per(s){return s.debut===s.fin?d(s.debut):'Du '+d(s.debut)+'<br>au '+d(s.fin);}
-document.head.insertAdjacentHTML('beforeend','<style>#pl-table td{vertical-align:middle}#pl-table td:first-child{white-space:nowrap}#pl-table .btn{white-space:nowrap}</style>');
+document.head.insertAdjacentHTML('beforeend','<style>#pl-table td{vertical-align:middle}#pl-table td:first-child{white-space:nowrap}#pl-table .btn{white-space:nowrap}#pl-table tr.pl-mois th{background:var(--creme2,#F3EBE0);color:var(--noir);font-family:var(--serif);font-size:1.35rem;font-weight:600;text-align:left;padding:14px 16px;border-top:2px solid var(--or)}</style>');
 var box=document.getElementById('pl-table');
 if(!box)return;
 box.innerHTML='<p class="hint">Chargement du planning…</p>';
@@ -44,9 +44,10 @@ fetch(API,{cache:'no-store'}).then(function(r){return r.json();}).then(function(
   p.sessions.forEach(function(s){rows.push({s:s,f:'<strong>'+s.formation.replace(' — ','</strong><br><small>')+'</small>',
     b:s.reste<=0?'<span class="badge complet">Complet</span>':(s.reste===1&&s.places>1?'<span class="badge peu">Dernière place</span>':'<span class="badge ok">'+s.reste+(s.reste>1?' places restantes':' place restante')+'</span>'),ok:s.reste>0});});
   p.libres.forEach(function(s){rows.push({s:s,f:'<strong>Dates libres</strong><br><small>Formation de votre choix</small>',b:'<span class="badge ok">Disponible</span>',ok:true});});
-  rows.sort(function(a,b){return a.s.debut<b.s.debut?-1:(a.s.debut>b.s.debut?1:0);});
-  box.innerHTML=rows.length?'<div class="tablewrap"><table class="plan"><thead><tr><th>Dates</th><th>Formation</th><th>Places</th><th></th></tr></thead><tbody>'+rows.map(function(r){
-    return '<tr><td>'+per(r.s)+'</td><td>'+r.f+'</td><td>'+r.b+'</td><td>'+(r.ok?'<a class="btn ghost" style="padding:8px 18px" href="inscription.html">Réserver</a>':'')+'</td></tr>';
+  var curMo='',moisLabel=function(s){var t=new Intl.DateTimeFormat('fr-FR',{month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(s+'T00:00:00Z'));return t.charAt(0).toUpperCase()+t.slice(1);};
+rows.sort(function(a,b){return a.s.debut<b.s.debut?-1:(a.s.debut>b.s.debut?1:0);});
+  box.innerHTML=rows.length?'<div class="tablewrap"><table class="plan"><thead><tr><th>Dates</th><th>Formation</th><th>Places</th><th></th></tr></thead><tbody>'+rows.map(function(r){var mo=r.s.debut.slice(0,7),hd='';if(mo!==curMo){curMo=mo;hd='<tr class="pl-mois"><th colspan="4">'+moisLabel(r.s.debut)+'</th></tr>';}
+    return hd+'<tr><td>'+per(r.s)+'</td><td>'+r.f+'</td><td>'+r.b+'</td><td>'+(r.ok?'<a class="btn ghost" style="padding:8px 18px" href="inscription.html">Réserver</a>':'')+'</td></tr>';
   }).join('')+'</tbody></table></div>':'<div class="notice"><strong>Aucune date n\'est publiée pour le moment.</strong> <a href="rendez-vous.html">Contactez-moi</a> : d\'autres sessions peuvent être ouvertes.</div>';
 }).catch(function(){
   box.innerHTML='<div class="notice">Le planning n\'a pas pu être chargé. <a href="rendez-vous.html">Contactez-moi</a> pour connaître les dates disponibles.</div>';
