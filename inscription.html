@@ -95,13 +95,58 @@ G.forEach(function(g){h+='<h3>'+g.t+'</h3>';g.o.forEach(function(o,i){h+=opt('ch
 h+='</fieldset>';
 h+='<fieldset><legend>Financement</legend><h3>Mode de financement <span class="req">*</span></h3>';
 FIN.forEach(function(o,i){h+=opt('radio','fin',i,o[1],'',o[2],i===0);});
-h+='<p class="hint">Les dates de votre formation seront fixées ensemble après réception de votre bulletin.</p></fieldset>';
+h+='</fieldset>';
+h+='<fieldset id="jf-dates"><legend>Vos dates</legend><p class="hint">Les dates proposées tiennent compte de mon planning en temps réel. Elles seront bloquées pour vous dès l\'envoi du bulletin, en attente de la validation de votre dossier.</p><div id="jf-dl"><p class="hint">Chargement des dates disponibles…</p></div></fieldset>';
 h+='<fieldset><legend>Accueil</legend><h3>Situation de handicap <span class="req">*</span></h3><p class="hint">Afin de vous accueillir dans les meilleures conditions, souhaitez-vous m\'indiquer si vous êtes en situation de handicap nécessitant un aménagement particulier ?</p>'+opt('radio','handi',1,'Non','','',true)+opt('radio','handi',0,'Oui','','')+'<div data-for="handi" hidden><label class="f"><input type="text" name="handi_o" placeholder="Précisez l\'aménagement souhaité"></label>'+opt('checkbox','handi_c',0,'Consentement','J\'accepte que cette information de santé soit utilisée uniquement pour adapter mon accueil et ma formation. Je peux retirer mon accord à tout moment.','')+'</div></fieldset>';
 h+='<fieldset><legend>Droit à l\'image</legend><h3>Photos et vidéos <span class="req">*</span></h3><p class="hint">Pendant la formation, je publie parfois des photos ou des vidéos sur Instagram, Facebook et ce site. Les photos de vos travaux (mains, sans visage) peuvent être publiées, sauf si vous vous y opposez. Pour les photos où l\'on reconnaît votre visage, faites votre choix ci-dessous. Refuser n\'a aucune conséquence sur votre formation, et vous pouvez changer d\'avis à tout moment (article 9 des <a href="cgv.html">CGV</a>).</p>'+IMG.map(function(t,i){return opt('radio','image',i,t,'','',i===0);}).join('')+'</fieldset>';
 h+='<input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><p id="jf-err" role="alert"></p><button class="btn" type="submit">Envoyer mon bulletin</button>';
 form.innerHTML=h;
 form.addEventListener('change',function(){var r=form.querySelector('input[name="handi"]:checked');form.querySelector('[data-for="handi"]').hidden=!(r&&r.value==='0');});
-function done(){form.innerHTML='<div class="ok"><h2>Merci, votre bulletin est bien envoyé !</h2><p>Je reviendrai vers vous dans les meilleurs délais pour vous proposer les dates disponibles et répondre à vos questions.</p><p>Au plaisir de vous accompagner prochainement,<br><strong>Julie</strong></p></div>';form.scrollIntoView({behavior:'smooth',block:'start'});}
+function done(){form.innerHTML='<div class="ok"><h2>Merci, votre bulletin est bien envoyé !</h2><p>'+(window.__jfRes?'Vos dates sont bloquées pour vous, en attente de la validation de votre dossier. Je reviendrai vers vous dans les meilleurs délais pour vous la confirmer et répondre à vos questions.':'Je reviendrai vers vous dans les meilleurs délais pour vous proposer les dates disponibles et répondre à vos questions.')+'</p><p>Au plaisir de vous accompagner prochainement,<br><strong>Julie</strong></p></div>';form.scrollIntoView({behavior:'smooth',block:'start'});}
+/* ---------- Choix des dates : planning en direct (tableau Google « Planning des formations ») ---------- */
+var API='https://script.google.com/macros/s/AKfycbyiNTZOGNoKfiyXGX26QxXYZPz4AA-ezGp5V3GwFZg-AvOVi8LXBlTx6GZc2Rg87Ft-/exec';
+var CR=null,CR_ERR=false,JF_OK=false;window.__jfRes=false;
+document.head.insertAdjacentHTML('beforeend','<style>#jf-dates .jf-dl{max-height:340px;overflow:auto;padding-right:4px}#jf-dates h3{margin:16px 0 8px}</style>');
+var JFD=new Intl.DateTimeFormat('fr-FR',{weekday:'short',day:'numeric',month:'short',year:'numeric',timeZone:'UTC'});
+function jfd(s){return JFD.format(new Date(s+'T00:00:00Z'));}
+function jfChoisies(){var out=[];G.forEach(function(g){Array.prototype.forEach.call(form.querySelectorAll('input[name="'+g.k+'"]:checked'),function(x){out.push({site:g.k+':'+x.value,t:g.t,o:g.o[+x.value][1]});});});return out;}
+function jfNom(site){return 'd_'+site.replace(':','_');}
+function rendreDates(){
+  var box=document.getElementById('jf-dl');if(!box)return;var ch=jfChoisies();
+  if(!ch.length){box.innerHTML='<p class="hint">Cochez d\'abord une formation : les dates disponibles s\'afficheront ici.</p>';return;}
+  if(CR===null){box.innerHTML=CR_ERR?'<p class="hint">Les dates disponibles n\'ont pas pu être chargées. Vous pouvez envoyer votre bulletin : nous fixerons les dates ensemble.</p>':'<p class="hint">Chargement des dates disponibles…</p>';return;}
+  var prev={};Array.prototype.forEach.call(box.querySelectorAll('input:checked'),function(x){prev[x.name]=x.value;});
+  box.innerHTML=ch.map(function(c){
+    var l=CR[c.site]||[],n=jfNom(c.site),head='<h3>'+c.t+' — '+c.o+'</h3>';
+    if(!l.length)return head+'<p class="hint">Aucune date disponible pour le moment pour cette formule. Envoyez quand même votre bulletin : je vous proposerai des dates.</p>';
+    return head+'<div class="jf-dl">'+l.map(function(s){
+      var per=s.debut===s.fin?jfd(s.debut):'Du '+jfd(s.debut)+' au '+jfd(s.fin);
+      var p=s.deja?(s.places>1?s.places+' places restantes':'Dernière place'):'';
+      var note=s.deja?'Session déjà commencée : vous rejoignez d\'autres élèves sur ces dates.':'';
+      return opt('radio',n,s.debut,per,p,note,false);
+    }).join('')+'</div>';
+  }).join('');
+  Object.keys(prev).forEach(function(k){var x=box.querySelector('input[name="'+k+'"][value="'+prev[k]+'"]');if(x)x.checked=true;});
+}
+function chargerCreneaux(){return fetch(API,{cache:'no-store'}).then(function(r){return r.json();}).then(function(j){CR=j.creneaux||{};CR_ERR=false;}).catch(function(){CR=null;CR_ERR=true;}).then(rendreDates);}
+form.addEventListener('change',function(ev){if(G.some(function(g){return g.k===ev.target.name;}))rendreDates();});
+form.addEventListener('submit',function(ev){
+  if(JF_OK||form.elements.website.value)return;
+  var ch=jfChoisies();if(!ch.length||!CR)return;
+  var items=[],manque=[],err=document.getElementById('jf-err');
+  ch.forEach(function(c){if(!(CR[c.site]||[]).length)return;var x=form.querySelector('input[name="'+jfNom(c.site)+'"]:checked');if(x)items.push({site:c.site,debut:x.value});else manque.push(c.t+' — '+c.o);});
+  ev.preventDefault();ev.stopImmediatePropagation();
+  if(manque.length){err.textContent='Choisissez vos dates pour : '+manque.join(' ; ')+'.';document.getElementById('jf-dates').scrollIntoView({behavior:'smooth'});return;}
+  if(!items.length){JF_OK=true;form.requestSubmit();return;}
+  var btn=form.querySelector('button[type=submit]');btn.disabled=true;err.textContent='Réservation de vos dates en cours…';
+  fetch(API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({items:items,eleve:(form.elements.prenom.value+' '+form.elements.nom.value).trim(),tel:form.elements.tel.value,mail:form.elements.mail.value})})
+    .then(function(r){return r.json();})
+    .then(function(j){btn.disabled=false;
+      if(j.ok){window.__jfRes=true;JF_OK=true;err.textContent='';form.requestSubmit();}
+      else{err.textContent=(j.msg||'Ces dates ne sont plus disponibles.')+' Merci de choisir une autre date.';chargerCreneaux();document.getElementById('jf-dates').scrollIntoView({behavior:'smooth'});}})
+    .catch(function(){btn.disabled=false;err.textContent='Impossible de réserver vos dates pour le moment. Réessayez dans un instant.';});
+});
+chargerCreneaux();
 form.addEventListener('submit',function(ev){
 ev.preventDefault();var err=document.getElementById('jf-err');err.textContent='';
 if(form.elements.website.value){done();return;}
